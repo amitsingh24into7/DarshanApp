@@ -1,0 +1,147 @@
+<!--
+  Generated template for the AddedtempledetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title style="text-align: center !important;">Temple Detail</ion-title>
+    <ion-buttons end> 
+      <button  ion-button icon-only >
+       &nbsp;&nbsp;&nbsp;&nbsp;
+      </button>
+    </ion-buttons>
+    <ion-buttons (click)="logoutFunction()" style="min-width: 45px; text-align: center;" end> 
+      <button ion-button icon-only >
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+    <!-- <ion-buttons (click)="openmodule('AddtemplePage')" end> 
+      <button  ion-button icon-only >
+        <ion-icon  name="add"></ion-icon>
+      </button>
+    </ion-buttons> -->
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-list class="settinglist">
+    <button  (click)="openModule('AddedtemplemoredetailPage')" style="padding: 0px;" ion-item >
+        <label> <div><ion-icon class="iconclass" name="refresh-circle"></ion-icon> <p class="labelfont">Detail</p></div> </label>
+           
+        </button>
+   </ion-list>
+   <ion-list class="settinglist">
+    <button (click)="openModule('AddseventlistPage')"  style="padding: 0px;"   ion-item >
+        <label> <div><ion-icon class="iconclass" name="megaphone"></ion-icon>
+          <!-- <ion-icon class="iconclass" name="ios-bookmark-outline"></ion-icon> -->
+          <p class="labelfont">Event</p></div> </label>
+           
+        </button>
+   </ion-list>
+   <ion-list class="settinglist">
+    <button (click)="openModule('ServicelistPage')" style="padding: 0px;"   ion-item >
+        <label> <div><ion-icon class="iconclass" name="snow"></ion-icon>
+          <!-- <ion-icon class="iconclass" name="ios-bookmark-outline"></ion-icon> -->
+          <p class="labelfont">Service</p></div> </label>
+           
+        </button>
+   </ion-list>
+   <ion-list class="settinglist">
+    <button (click)="openModule('NotificationDashbordPage')"  style="padding: 0px;"   ion-item >
+    <!-- <button (click)="openModule('SendNotificationPage')"   ion-item > -->
+        <label> <div><ion-icon class="iconclass" name="md-notifications"></ion-icon>
+          <!-- <ion-icon class="iconclass" name="ios-bookmark-outline"></ion-icon> -->
+          <p class="labelfont">Notification </p></div> </label>
+    </button>
+   </ion-list>
+   <ion-list class="settinglist">
+      <a href="https://motleystack.com/darshancart/admin_area/login.php"
+      onClick="document.forms['myform'].submit(); return false;">
+    <button  style="padding: 0px;"    ion-item >
+        <label> <div><ion-icon class="iconclass" name="ios-cart"></ion-icon>
+        
+          <p class="labelfont">Cart Admin </p></div> </label>
+    </button>
+    </a>
+   </ion-list>
+   <form name="myform" method="post" action="https://motleystack.com/darshancart/admin_area/login.php"
+  target="_blank">
+<input type="hidden" name="TempleInfo" value="{{pageinfoobj|json}}">
+<input type="hidden" name="UserInfo" value="{{loginInfo|json}}">
+</form>
+<!-- Open resultsin a new window</a> -->
+<ion-list class="settinglist">
+  <button (click)="openModule('ReportDashboardPage')"  style="padding: 0px;"   ion-item >
+  <!-- <button (click)="openModule('SendNotificationPage')"   ion-item > -->
+      <label> <div><ion-icon class="iconclass" name="md-cloud-download"></ion-icon>
+        <!-- <ion-icon class="iconclass" name="ios-bookmark-outline"></ion-icon> -->
+        <p class="labelfont">Report</p></div> </label>
+  </button>
+ </ion-list>
+ <!-- <ion-list class="settinglist">
+  <button (click)="streaming_Schedul()"  style="padding: 0px;"   ion-item >
+ 
+      <label> <div><ion-icon class="iconclass" name="ios-pulse-outline"></ion-icon>
+      
+        <p class="labelfont">Streaming<br>Schedul </p></div> </label>
+  </button>
+ </ion-list> -->
+ 
+ 
+ <!-- <ion-list class="settinglist">
+  <button (click)="openModule('StreamingListPage')"  style="padding: 0px;"   ion-item >
+ 
+      <label> <div><ion-icon class="iconclass" name="ios-list-box-outline"></ion-icon>
+      
+        <p class="labelfont">Streaming<br>Scheduled list</p></div> </label>
+  </button>
+ </ion-list> -->
+ <!-- <ion-list class="settinglist">
+  <button (click)="openModule('YtStreamingListPage')"  style="padding: 0px;"   ion-item >
+ 
+      <label> <div><ion-icon class="iconclass" name="ios-list-box-outline"></ion-icon>
+      
+        <p class="labelfont">Youtube<br>Streaming<br>Scheduled list</p></div> </label>
+  </button>
+ </ion-list> -->
+ <ion-list class="settinglist">
+  <button (click)="openModule('AartiDashbordPage')"  style="padding: 0px;"   ion-item >
+ 
+      <label> <div><ion-icon class="iconclass" name="md-flame"></ion-icon>
+      
+        <p class="labelfont">Aarti</p></div> </label>
+  </button>
+ </ion-list>
+ <ion-list class="settinglist">
+  <button (click)="openModule('MycartPage')"  style="padding: 0px;"   ion-item >
+ 
+      <label> <div><ion-icon class="iconclass" name="md-basket"></ion-icon>
+      
+        <p class="labelfont">All Booking</p></div> </label>
+  </button>
+ </ion-list>
+ <ion-list *ngFor='let indexof of usermenu'  class="settinglist">
+  <button (click)="open_ext_Module(indexof.href)"  ion-item >
+      <label> <div><ion-icon class="iconclass" name="{{indexof.image}}"></ion-icon> <p class="labelfont" [innerHTML]="indexof.label"></p></div> </label>
+         
+      </button>
+ </ion-list>  
+ 
+
+
+</ion-content>
+<!-- <ion-footer style="bottom: 56px;text-align: center;background-color: #ff9933;font-weight: bold;font-size: 15px;/* color: white; */">
+  <ion-toolbar  class="footertempdetail" (click)="openmodule('AddtemplePage')">
+      
+        <ion-icon name="add"></ion-icon>
+        Add  Service
+     
+  </ion-toolbar>
+  <ion-toolbar class="footertempdetail" (click)="openmodule('AddtemplePage')">
+   
+      <ion-icon name="add"></ion-icon>
+      Add  Category
+     
+</ion-toolbar>
+</ion-footer> -->

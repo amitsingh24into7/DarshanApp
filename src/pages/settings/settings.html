@@ -1,0 +1,111 @@
+<ion-header>
+
+  <ion-navbar>
+    
+          <!-- <button ion-button menuToggle>
+              <ion-icon name="menu"></ion-icon>
+            </button> -->
+        
+     
+    <!--<ion-title>{{ pageTitle }}</ion-title>-->
+    <ion-title>Settings</ion-title>
+  
+
+    <!-- <ion-buttons (click)="openModule('NotificationPage')" end> 
+      <button ion-button icon-only >
+        <ion-icon name="ios-notifications-outline"></ion-icon>
+        <label *ngIf="notiCount>0" style="left: 15px;top: -4px;position: absolute;color: white;background: black;border-radius: 20px;min-width: 18px;">{{notiCount}}</label>
+      </button>
+    </ion-buttons> -->
+    <!-- <ion-buttons end> 
+      <button ion-button icon-only >
+        <ion-icon name="ios-help-circle-outline"></ion-icon>
+      </button>
+    </ion-buttons> -->
+
+  </ion-navbar>
+
+</ion-header>
+
+  <ion-content> 
+    <ion-list class="settinglist">
+      <button  (click)="openmodalpage()" ion-item >
+          <label> <div><ion-icon class="iconclass" name="refresh-circle"></ion-icon> <p class="labelfont">Language</p></div> </label>
+             
+          </button>
+     </ion-list>
+     <!-- <ion-list class="settinglist">
+      <button (click)="openSubscribelist()"   ion-item >
+          <label> <div><ion-icon class="iconclass" name="bookmark"></ion-icon>
+          
+            <p class="labelfont">Subscribed</p></div> </label>
+             
+          </button>
+     </ion-list> -->
+     <!-- <ion-list class="settinglist">
+      <button  ion-item >
+          <label> <div><ion-icon class="iconclass" name="help-circle"></ion-icon> <p class="labelfont">Help Center</p></div> </label>
+             
+          </button>
+     </ion-list> -->
+     <!-- <ion-list class="settinglist">
+      <button  (click)="qrScanner()" ion-item >
+          <label> <div><ion-icon class="iconclass" name="md-qr-scanner"></ion-icon> <p class="labelfont">scanner</p></div> </label>
+      </button>
+     </ion-list> -->
+     <ion-list class="settinglist">
+      <button (click)="openModule('TeamPage')"  ion-item >
+          <label> <div><ion-icon class="iconclass" name="md-contacts"></ion-icon> <p class="labelfont">Teams</p></div> </label>
+             
+          </button>
+     </ion-list>
+     <ion-list class="settinglist">
+      <button (click)="openCommonModule('CommonPage','faqpage','FAQ')"  ion-item >
+          <label> <div><ion-icon class="iconclass" name="snow"></ion-icon> <p class="labelfont">FAQ</p></div> </label>
+             
+          </button>
+     </ion-list>
+
+     <ion-list class="settinglist">
+      <button  (click)="openModule('ProfiePage')" ion-item >
+          <label> <div><ion-icon class="iconclass" name="contact"></ion-icon> <p class="labelfont">Profile</p></div> </label>
+             
+          </button>
+     </ion-list>
+     <ion-list class="settinglist">
+      <!-- (click)="openModule('CalendarPage')" -->
+      <button (click)="openCommonModule('CommonPage','event_cal','Event Calendar')" ion-item >
+          <label> <div><ion-icon class="iconclass" name="calendar"></ion-icon> <p class="labelfont">Event <br>Calendar</p></div> </label>
+             
+          </button>
+     </ion-list>
+    
+     <ion-list *ngIf="isadmin" class="settinglist">
+      <button (click)="openModule('AddedtemplePage')"  ion-item >
+          <label> <div><ion-icon class="iconclass" name="home"></ion-icon> <p class="labelfont">Manage<br>Temples</p></div> </label>
+             
+          </button>
+     </ion-list>
+     <ion-list  class="settinglist">
+      <button (click)="openModule('WishlistPage')"  ion-item >
+          <label> <div><ion-icon class="iconclass" name="ios-albums"></ion-icon> <p class="labelfont">Wishlist</p></div> </label>
+             
+          </button>
+     </ion-list>
+
+     <ion-list *ngFor='let indexof of usermenu'  class="settinglist">
+      <button (click)="open_ext_Module(indexof.href)"  ion-item >
+          <label> <div><ion-icon class="iconclass" name="{{indexof.image}}"></ion-icon> <p class="labelfont" [innerHTML]="indexof.label"></p></div> </label>
+             
+          </button>
+     </ion-list>  
+
+     <!-- <ion-list class="settinglist"> -->
+      <!--  --> <!-- <button (click)="streaming_Schedul()"  ion-item > -->
+      <!-- <button (click)="openModule('ScheduledStreaminListPage')"  ion-item >
+     
+          <label> <div><ion-icon class="iconclass" name="ios-pulse-outline"></ion-icon> <p class="labelfont">Scheduled<br>Striming </p></div> </label>
+          </button>
+     </ion-list> -->
+     
+  </ion-content>

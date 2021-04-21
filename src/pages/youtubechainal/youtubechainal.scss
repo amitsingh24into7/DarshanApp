@@ -1,0 +1,21 @@
+page-youtubechainal {
+    .closebtn{
+        background-color: transparent;
+		font-size: 24px;
+		float: left;
+    }
+    .applysearchbtn{
+        background-color:var(--color);
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    }
+    ion-checkbox button {
+        width: 77px !important;
+    }
+    .templeID_class{
+        font-size: 12px;
+    }
+    
+}

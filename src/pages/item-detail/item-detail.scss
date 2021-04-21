@@ -1,0 +1,193 @@
+page-item-detail {
+  .item-profile {
+    width: 100%;
+    background-position: center center;
+    background-size: cover;
+    height: 250px;
+  }
+
+  .item-detail {
+    width: 100%;
+    background: white;
+    position: absolute;
+  }
+}
+.toolbar-title-md {
+  padding: 5px 12px 0px 0px;
+  
+}
+page-item-detail .item-detail {
+
+  width: 100%;
+  background: transparent;
+  position: absolute;
+
+}
+// .back-button.show-back-button {
+//   display: inline-block;
+// }
+.whatsapp {
+  color: white;
+}
+img{
+  width: 100%;
+}
+p,h3 {
+    text-align: justify;
+    font-size: 1.5rem;
+}
+h3 {
+  font-size:16px !important;
+}
+// .tabbar {
+//   left: 0;
+//   position: absolute;
+//   z-index: 10;
+//   opacity: unset;
+//   bottom: unset;
+// }
+.cardaline{
+  text-align: justify;padding: 5px;font-size: 10px;
+}
+.imagealine{
+  width: 80px;float: left; padding: 5px;
+}
+h3 {
+  text-align: justify;
+  font-size: 2rem;
+}
+ion-icon.icon.icon-md.ion-md-share {
+  float: right;
+}
+
+ion-icon.icon.icon-md.ion-ios-arrow-dropright {
+  float: right;
+}
+.whatsapp{
+  color:#4FCE5D;
+} 
+.detailspage ion-list ion-icon{
+  width: 30px !important;
+}
+.heart{
+  float: right;
+    padding-left: 13px;
+}
+.headerback{
+ 
+    float: left;
+    bottom: 2px;
+
+}
+.backbutton{
+  position: fixed !important;
+    top: 18px !important;
+    left: 0px !important;
+    color: black !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+
+}
+
+.detailspage .reviewsblock,.detailspage ion-list label  {
+     padding-left: 0px !important; 
+}
+ion-list label{padding-left: 10px;}
+ion-list ion-icon{
+  font-size: 1.4em;
+  color:var(--color);
+}
+// .swiper-slide.swiper-slide-active div ion-list div div ion-label h2{
+//   color:white;
+// }
+
+.slide-zoom .list.list-md {
+  margin: 0;
+}
+
+ .sliderbtn{
+  background-color: var(--color);
+  text-align: center;
+  border-radius: 11px;
+  padding: 3px;
+}
+.gallerythumb{
+  float: right;
+  color: #fff;
+  bottom: 11%;
+  margin: 10px;
+ 
+  position: relative;
+}
+.gallerythumb .ion-icon,.gallerythumb .ion-md-images{
+  font-size: 2.8rem !important ;
+}
+
+
+.reviewsblock p {
+  
+  margin: 0;
+}
+// .back-button.show-back-button{
+//   //display: unset !important;
+//   //display: none !important;
+//   }
+// .headertitle{
+//   text-align: center;
+// }
+.tab {
+  overflow: hidden;
+  border: 1px solid #f93;
+  background-color:#f93;
+}
+.sharebtn {
+  color: black;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 10px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #f4670a;
+}
+
+/* Create an active/current tablink class */
+.tab button.active,.footerclass {
+  background-color: #f4670a;
+  
+}
+.footerclass{
+  float: right;
+}
+.titleclass div.toolbar-title-md {
+  font-size: 1.8rem !important;
+  padding-left: 0px;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid var(--color);
+  border-top: none;
+}
+.button-clear-md {
+  border-color: transparent;
+  // color: #488aff;
+  // background-color: #0eb70c;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  opacity: 1;
+  border-radius: 10px;
+  float: right;
+}

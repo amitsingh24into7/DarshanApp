@@ -1,0 +1,48 @@
+<!--
+  Generated template for the ServicetimelistPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Service Time List</ion-title>
+    <ion-buttons    end> 
+      <button  (click)="doFormSubmit()"  ion-button icon-only >
+        Next <ion-icon name="ios-arrow-forward-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <!-- {{localobjfortime.templeservicetime | json}} -->
+    <div *ngFor="let item of localobjfortime.templeservicetime">
+    <ion-item-sliding   >
+      <button ion-item >      
+        <h2>{{item.Day}}</h2>
+        <p> From time:- {{item.FromTime}}  To Time :- {{item.ToTime}}</p>
+        <ion-note item-end><ion-icon name="ios-arrow-forward-outline"></ion-icon></ion-note>
+      </button> 
+       <ion-item-options>
+        <!-- <button ion-button (click)="openmoduledetail('AdminservicedetailPage',item)" style="background-color: var(--color);"   >
+          <ion-icon style="color:black" name="more"></ion-icon>
+        </button> -->
+        <!-- <button ion-button (click)="openmoduleforupdate('AddservicetimePage',item)" style="background-color: var(--color);">
+          <ion-icon style="color:black" name="create"></ion-icon>
+        </button> -->
+        <button ion-button (click)="deletefunction(item)" style="background-color: var(--color);" >
+          <ion-icon  style="color:black"  name="trash"></ion-icon>
+          </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </div>
+  </ion-list>
+</ion-content>
+<ion-footer class="adminfooter" style="bottom: 56px;text-align: center;background-color: var(--color);font-weight: bold;font-size: 15px;/* color: white; */">
+  <ion-toolbar (click)="openmodule('AddservicetimePage')">
+        <ion-icon name="snow"></ion-icon>
+        Add  Service Time
+  </ion-toolbar>
+</ion-footer>

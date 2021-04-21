@@ -1,0 +1,120 @@
+<!--
+  Generated template for the DonationModelPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    
+    <ion-title><button style=" background: transparent; color: white; "  (click)="closeModel()">Back</button></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+  <!-- <ion-list >
+    <ion-item>
+      
+      <ion-select style="max-width: 100%;" (ionChange)="getSelectedoption($event)" >
+      
+        <ion-option selected >Plese Select Option</ion-option>
+        <ion-option  *ngFor="let option of respObj" [value]="option">{{option.optionname}}</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list> -->
+ <!-- <ion-list  radio-group [(ngModel)]="autoManufacturers"> -->
+ 
+    <!--    <ion-list-header>
+        <ion-label>Plese Select Option</ion-label>
+      </ion-list-header>
+      <diV *ngFor="let option of respObj">
+
+        
+
+        <ion-item >
+          <ion-label>{{option.optionname}}<br>
+            <p style="font-size: 1.3rem;"> {{option.optiondescription}}</p>
+          
+          </ion-label>
+          <ion-radio  (ionSelect)="selectoption(option)"  slot="start" [value]="option"></ion-radio>
+        
+        </ion-item>
+        
+    </diV> -->
+    <div class="row">
+      <div class="col" radio-group [(ngModel)]="autoManufacturers">
+      
+        <div *ngFor="let option of respObj;let indexOfelement=index;" class="tabs">
+          <div class="tab">
+            <input type="radio" id="rd{{indexOfelement}}" name="rd">
+            <label class="tab-label" for="rd{{indexOfelement}}">{{option.optionname}}</label>
+            <div class="tab-content">
+              
+                <!--<ion-label>  -->
+                  <!-- <p style="font-size: 1.3rem;"> {{option.optiondescription}}</p> -->
+                
+
+                <!-- </ion-label> -->
+                <ion-label style="font-size: 24px;">Price :{{option.price}}
+                  <!-- <ion-radio style="zoom: 1.5;" end-div (ionSelect)="selectoption(option)"  slot="start" [value]="option">
+                 
+                  </ion-radio> -->
+                  <ion-label style="
+                  float: right;
+                  margin: 0px;
+                  font-size: 15px;
+                  background-color: var(--color);
+                  color: white;
+                  padding: 10px;
+                  border-radius: 7px;
+              " (click)="selectoption(option)">Apply</ion-label>
+                </ion-label>
+                
+               
+              
+              
+              
+              <div [innerHTML]='option.optiondescription'></div>
+              <div [innerHTML]='option.remarks'></div>
+            </div>
+          </div>
+         
+        </div>
+      </div>
+    </div>
+      <!-- <ion-item *ngFor="let option of respObj">
+        <ion-label>{{option.optionname}}<br>
+          <p> {{option.optiondescription}}</p>
+          <a (click)="openFunction()">More</a>
+        </ion-label>
+        <ion-radio   slot="start" [value]="option"></ion-radio>
+       
+      </ion-item> -->
+  
+      <!-- <ion-item>
+        <ion-label>Griff</ion-label>
+        <ion-radio   slot="start" value="griff"></ion-radio>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label>Buford</ion-label>
+        <ion-radio   slot="start" value="buford"></ion-radio>
+      </ion-item> -->
+    <!-- </ion-radio> -->
+  <!-- </ion-list> -->
+
+
+  
+</ion-content>
+<!-- <ion-footer>
+    
+  <ion-toolbar end>
+     
+   <p>{{selectedDesc}}</p>
+    
+  </ion-toolbar>
+  
+
+
+  
+</ion-footer> -->

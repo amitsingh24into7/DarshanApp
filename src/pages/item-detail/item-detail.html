@@ -1,0 +1,164 @@
+
+  <ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>     
+           
+          </button>          
+            <ion-title *ngIf="item.TempleName">{{item.TempleName}}</ion-title>
+            <ion-title  *ngIf="item.title">{{item.title}}</ion-title>  
+          <ion-buttons *ngIf="iconshowhide" end> 
+            <button  (click)="socialShareFunction(item.ShortDesc,imagelocation+ item.ImageURL)" ion-button icon-only >
+              <ion-icon name="share"></ion-icon>
+            </button>
+          </ion-buttons>
+          <ion-buttons  *ngIf="iconshowhide && issubscribe" end> 
+            <button (click)="unsubscribedfunction()"  ion-button icon-only >
+              <ion-icon   name="md-heart"></ion-icon>
+            </button>
+          </ion-buttons>
+          <ion-buttons *ngIf="iconshowhide && !issubscribe"  end> 
+            <button (click)="subscribedfunction()"  ion-button icon-only >
+              <ion-icon    name="ios-heart-outline"></ion-icon>
+            </button>
+          </ion-buttons>
+          <!-- <a class="item" href="#grid/content_a">content_a</a> -->
+    </ion-navbar>
+   
+  </ion-header>
+  <!-- (ionScroll)="scrollTOTop()" -->
+  <ion-content   has-footer="false"  scroll="true">
+   
+    <!-- <div *ngFor="let item of item_of_pay;let i=index" id="paypal-button-container_{{i+1}}">
+     
+    </div> -->
+
+    <img  [src]="imagelocation+ item.ImageURL" />
+    <label class="gallerythumb"  (click)="openModulegalery()"><ion-icon name="images"></ion-icon></label>
+    <label class="gallerythumb"> <a class="item" (click)="boxscroll('eventbox')" > <ion-icon style="color: white;" name="megaphone"></ion-icon></a></label>
+    <label class="gallerythumb"> <a class="item" (click)="boxscroll('ServicesBOx')" > <ion-icon style="color: white;" name="snow"></ion-icon></a></label>
+    <label class="gallerythumb"> <a class="item" (click)="boxscroll('mapBox')"> <ion-icon style="color: white;" name="md-locate"></ion-icon></a></label>
+    
+    
+    
+    <div class="item-detail detailspage">
+      <ion-list>
+        <ion-item>
+          <ion-label>Preferred language</ion-label>
+          <ion-select (ionChange)="getSelectedLang($event)" interface="popover" >
+            <!-- <ion-option *ngIf="def_lang.val=='English'" [value]="def_lang.val" [selected]="true"></ion-option> -->
+            <ion-option [selected]="lang.ConfigVal==def_lang.val ? 'true' : 'false' "*ngFor="let lang of languageobj" [value]="lang.ConfigVal">{{lang.ConfigDisplayVal}}</ion-option>
+          
+          </ion-select>
+        </ion-item>
+      </ion-list>
+            
+      
+      <p padding >{{item.ShortDesc}}</p>
+  
+    <h3 padding id="ServicesBOx"  ><label *ngIf="templeserviceobj?.length >0"><b>All Services</b> </label>
+      
+      <ion-icon  (click)="unsubscribedfunction()" *ngIf="!iconshowhide && issubscribe" class="heart" name="md-heart"></ion-icon>
+      <ion-icon  (click)="subscribedfunction()" *ngIf="!iconshowhide && !issubscribe" class="heart" name="ios-heart-outline"></ion-icon>
+       <button style="
+       float: right;
+       background-color: transparent;
+       font-size: 18px;
+   " (click)="socialShareFunction(item.ShortDesc,imagelocation+ item.ImageURL)">
+        <ion-icon  *ngIf="!iconshowhide" end name="share"></ion-icon>
+       </button>
+       
+     
+    </h3>
+    <!-- <h3 *ngIf="templeserviceobj?.length == 0" >
+      
+      <ion-icon  (click)="unsubscribedfunction()" *ngIf="!iconshowhide && issubscribe" class="heart" name="md-bookmark"></ion-icon>
+      <ion-icon  (click)="subscribedfunction()" *ngIf="!iconshowhide && !issubscribe" class="heart" name="ios-bookmark-outline"></ion-icon>
+       <button style="
+       float: right;
+       background-color: transparent;
+       font-size: 18px;
+   " (click)="socialShareFunction(item.ShortDesc)">
+        <ion-icon  *ngIf="!iconshowhide" end name="share"></ion-icon>
+       </button>
+       
+     
+    </h3> -->
+ 
+    <ion-list  *ngFor="let item of templeserviceobj" >
+      <ion-card id="{{item.ServiceTitle}}" padding>
+      <ion-list (click)='openServicedetailPage(item)' >
+        
+       
+        <label><strong>{{item.ServiceTitle}}</strong></label>
+        
+          <p>{{item.ServiceShortDesc}} </p>
+      </ion-list>
+      <!-- *ngIf="item.Amount" -->
+      <ion-note *ngIf="item.Amount"  list-end>   <ion-icon name="cash"></ion-icon> USD  100 <img (click)="openDonatePageofService(item)" class="footerclass" style="width:130px" src="assets/imgs/paypal.png"></ion-note>
+    </ion-card>
+    
+    </ion-list>
+
+
+
+    <h3 padding id="eventbox" *ngIf="eventobj?.length >0"><b>All Events </b></h3>
+    <ion-list  *ngFor="let item of eventobj" >
+      <ion-card id="{{item.TempleID}}" padding>
+      <ion-list (click)='openEventPage(item)' >
+        <label><strong>{{item.EventsTitle}}</strong></label>
+       
+          <p>{{item.EventsShortDesc}} </p>
+      </ion-list>
+    </ion-card>
+    
+    </ion-list>
+    
+
+
+    <ion-list padding id="mapBox" (click)="openmap(item)" >
+      <hr>
+      <ion-icon name="ios-arrow-dropright"> </ion-icon><label><b>Map</b></label>
+      
+    </ion-list>
+    
+  
+  
+  
+    <hr>
+   
+
+<div padding>
+  <ion-list ><ion-icon name="contact"> </ion-icon> {{item.contactperson}} </ion-list>
+    
+  <ion-list ><ion-icon name="call"> </ion-icon> <label>{{item.contactno}}</label></ion-list>
+  <ion-list><ion-icon name="mail"></ion-icon><label>{{item.contactemail}} </label></ion-list>
+
+</div>
+   
+  
+    <hr>
+    <div style="padding: 5px;" [innerHTML]="item.LongDesc"></div>
+    </div>
+    
+    
+  </ion-content>
+  <ion-footer>
+    
+    <ion-toolbar end>
+       <img (click)="openDonatePage()" class="footerclass" style="width:120px" src="assets/imgs/paypal.png">
+         <!-- <button ion-button (click)="openDonatePage()"  class="footerclass">
+          Donate  
+         </button>          -->
+      
+         <button ion-button style="height: 25px; float: left; margin: 0; margin-right: 5px;" (click)="openCartlistPage(item)"  class="footerclass">
+          Temple Merchandise 
+        </button> 
+     
+      
+    </ion-toolbar>
+    
+
+
+    
+  </ion-footer>

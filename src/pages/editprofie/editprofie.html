@@ -1,0 +1,84 @@
+<!--
+  Generated template for the EditprofiePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Edit Profie</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form >
+    <ion-list>
+
+      <ion-item>
+        <ion-label fixed>{{ 'Name' }}</ion-label>
+        <ion-input placeholder="Name" readonly type="text" [(ngModel)]="account.username" name="username"></ion-input>
+        
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label fixed>{{ 'Email' }}</ion-label>
+        <ion-input  placeholder="Email" readonly type="email" [(ngModel)]="account.email" name="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>{{ 'Phone'  }}</ion-label>
+        <ion-input placeholder="Phone"  type="number" [(ngModel)]="account.phone" name="phone"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>{{ 'Nakshatra' }}</ion-label>
+        <!-- <ion-input type="text" [(ngModel)]="account.nakshatra" name="nakshatra"></ion-input> -->
+       
+        <ion-select [(ngModel)]="account.nakshatra" name="nakshatra" (ionChange)="nakshatraChange(account.nakshatra)"  style="max-width: 100% !important;"   >  
+      
+          <ion-option *ngFor="let list of Nakshatra" value="{{list.ConfigVal}}">{{list.ConfigDisplayVal}}</ion-option>
+         
+          </ion-select>
+        
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>{{ 'Rashi' }}</ion-label>
+        <!-- <ion-input type="text" [(ngModel)]="account.rashi" name="rashi"></ion-input> -->
+        <ion-select [(ngModel)]="account.rashi" name="rashi"  style="max-width: 100% !important;" >  
+      
+          <ion-option *ngFor="let list of Rashi" value="{{list.ConfigVal}}">{{list.ConfigDisplayVal}}</ion-option>
+         
+          </ion-select>
+        
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>{{ 'Gotra' }}</ion-label>
+      
+        <ion-input placeholder="Gotra" type="text" [(ngModel)]="account.gotra" name="gotra"></ion-input>
+        
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>{{ 'BirthDate' }}</ion-label>
+        <!-- <ion-input type="text" [(ngModel)]="account.birthdate" name="birthdate"></ion-input> -->
+       
+        <ion-datetime placeholder="BirthDate"  displayFormat="MM/DD/YYYY" [(ngModel)]="account.birthdate" name="birthdate" min="1970-03-14"  value="2002-09-23T15:03:46.789"></ion-datetime>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label style=" width: unset !important; max-width: 107px !important; ">{{ 'Marriage Date' }}</ion-label>
+        <!-- <ion-input type="text" [(ngModel)]="account.marriagedate" name="marriagedate"></ion-input> -->
+        <ion-datetime style="width: 184px;" placeholder="Marriage Date" displayFormat="MM/DD/YYYY" [(ngModel)]="account.marriagedate" name="marriagedate" min="1990-03-14"  value="2002-09-23T15:03:46.789"></ion-datetime>
+        
+      </ion-item>
+      <!-- <div padding>
+        <button ion-button class='buttoncolor' block>UPDATE</button>
+      </div> -->
+
+    </ion-list>
+  </form>
+</ion-content>
+
+<ion-footer class="adminfooter" style="bottom: 56px;text-align: center;background-color: var(--color);font-weight: bold;font-size: 15px;/* color: white; */">
+  <ion-toolbar  (click)="updateProfile()">        
+        UPDATE
+  </ion-toolbar>
+</ion-footer>

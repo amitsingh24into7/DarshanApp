@@ -1,0 +1,255 @@
+
+:root {
+  --color : #b7410e;
+  }
+  
+  @font-face {
+    font-family: 'San Fransico';
+   
+    /* src: url('../font/OpenSans-Bold.ttf'); */
+    src: url('../font/OpenSans-Regular.ttf');
+    
+  }
+  * {
+    font-family: 'San Fransico';
+  }
+ion-header{
+  background-color:var(--color);    /************* This is header background color*************/
+}
+
+ .errormessage{
+  color: red;
+  float: left;
+  padding-left: 41px !important;   
+ }
+ .select-md {
+  padding: 13px 8px 13px 16px;
+  width: 100%;
+}
+
+ ion-card{
+   width: 100% !important;
+   margin-left: 0 !important;
+   margin-right: 0 !important;
+ }
+
+
+ /* ion-navbar ion-icon.back-button-icon.icon.icon-md.back-button-icon-md.ion-md-arrow-back {
+  
+} */
+
+ion-navbar button.disable-hover.bar-button.bar-button-md.bar-button-default.bar-button-default-md{
+  color: white !important;
+}
+ion-alert.alert-md.updateconfarmatio {
+  top: 43% !important;
+}
+span.back-button-text.back-button-text-md {
+    display: none !important;
+}
+
+ ion-alert.alert-md.paymentalert .alert-wrapper { /**Use for Donation page after payment Suc/fail*********/
+  position: unset;
+  width: 90% !important;
+}
+
+ .alert-md .alert-radio-group, .alert-md .alert-checkbox-group{
+   max-height: unset !important;
+   max-height: 500px !important;
+ }
+
+
+
+ .adminfooter{
+  text-align: center;
+  background-color: var(--color);
+  font-size: 15px;
+  color: white;
+  font-weight: normal !important;
+}
+.tabs-md .tab-button[aria-selected=true] span.tab-button-text{
+  color: var(--color);
+  font-weight: bold;
+  
+}
+/* .tabs-md .tab-button[aria-selected=false] span.tab-button-text{
+  opacity:.7 !important;
+} */
+
+ .loader{width: 90px !important; height: 90px !important;}
+ .custom-spinner-container {
+  text-align: center !important;
+}
+.toolbar-title.toolbar-title-md,ion-header{
+  color: #fff;     /************* This is header Title color*************/
+}
+
+
+ion-navbar button.disable-hover.bar-button.bar-button-md.bar-button-default.bar-button-default-md,.bar-button-default-md{
+  color: #fff !important;     /************* This is header icon color*************/
+
+}
+
+
+ion-app.md{
+  background-color: #f8f8f8;
+}
+
+.reviewsblock{
+  padding-left:9px;
+}
+.reviewsblock ion-icon {
+  font-size: 0.8em;
+  color: #b7410e;
+}
+
+.reviewsblock p {
+  float: right;
+  line-height: 13px;
+  font-size: 0.8em;
+  padding-left: 5px;
+  color:#666;
+}
+ion-footer .toolbar-background-md, .buttoncolor {
+  color: #000000;
+  background-color: transparent;
+}
+.alert-wrapper {
+  left: 0;
+  top: 0;
+  position: absolute;
+  max-height:unset !important;
+  max-height:100% !important;
+
+  /* max-height: 70%; */
+}
+.alert-ios .alert-wrapper{
+  max-width: unset !important;
+  width: 100% !important;
+}
+
+
+.alert-md .alert-wrapper{
+  max-width: unset !important;
+  /* max-height: unset !important;
+  height: 100% ; */
+  width: 100% !important;
+}
+/**************************** --For ios css-- **************************************************/
+.platform-ios ion-header{
+  background-color:var(--color);    /************* This is header background color*************/
+}
+
+.platform-ios .errormessage{
+  color: red;
+  float: left;
+  padding-left: 41px !important;   
+ }
+ .platform-ios .select-md {
+  padding: 13px 8px 13px 16px;
+  width: 100%;
+}
+
+.platform-ios ion-card{
+   width: 100% !important;
+   margin-left: 0 !important;
+   margin-right: 0 !important;
+ }
+
+
+ /* ion-navbar ion-icon.back-button-icon.icon.icon-md.back-button-icon-md.ion-md-arrow-back {
+  
+} */
+
+.platform-ios ion-navbar button.disable-hover.bar-button.bar-button-md.bar-button-default.bar-button-default-md{
+  color: white !important;
+}
+
+
+.platform-ios ion-alert.alert-md.paymentalert .alert-wrapper { /**Use for Donation page after payment Suc/fail*********/
+  position: unset;
+  width: 90% !important;
+}
+
+.platform-ios .alert-md .alert-radio-group, .alert-md .alert-checkbox-group{
+   max-height: unset !important;
+   max-height: 500px !important;
+ }
+
+
+
+ .platform-ios .adminfooter{
+  text-align: center;
+  background-color: var(--color);
+  font-size: 15px;
+  color: white;
+  font-weight: normal !important;
+}
+.platform-ios .tabs-md .tab-button[aria-selected=true] span.tab-button-text{
+  color: var(--color);
+  font-weight: bold;
+  
+}
+/* .tabs-md .tab-button[aria-selected=false] span.tab-button-text{
+  opacity:.7 !important;
+} */
+
+.platform-ios .loader{width: 90px !important; height: 90px !important;}
+ .platform-ios .custom-spinner-container {
+  text-align: center !important;
+}
+.platform-ios .toolbar-title.toolbar-title-md,ion-header{
+  color: #fff;     /************* This is header Title color*************/
+}
+
+
+.platform-ios ion-navbar button.disable-hover.bar-button.bar-button-md.bar-button-default.bar-button-default-md,.bar-button-default-md{
+  color: #fff !important;     /************* This is header icon color*************/
+
+}
+
+
+.platform-ios ion-app.md{
+  background-color: #f8f8f8;
+}
+
+.platform-ios .reviewsblock{
+  padding-left:9px;
+}
+.platform-ios .reviewsblock ion-icon {
+  font-size: 0.8em;
+  color: #b7410e;
+}
+
+.platform-ios .reviewsblock p {
+  float: right;
+  line-height: 13px;
+  font-size: 0.8em;
+  padding-left: 5px;
+  color:#666;
+}
+.platform-ios ion-footer .toolbar-background-md, .buttoncolor {
+  color: #000000;
+  background-color: transparent;
+}
+.platform-ios .alert-wrapper {
+  left: 0;
+  top: 0;
+  position: absolute;
+  max-height:unset !important;
+  max-height:100% !important;
+
+  /* max-height: 70%; */
+}
+.platform-ios .alert-ios .alert-wrapper{
+  max-width: unset !important;
+  width: 100% !important;
+}
+
+
+.platform-ios .alert-md .alert-wrapper{
+  max-width: unset !important;
+  /* max-height: unset !important;
+  height: 100% ; */
+  width: 100% !important;
+}

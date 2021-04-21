@@ -1,0 +1,123 @@
+<!--
+  Generated template for the ServicedetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+          <!-- <ion-title>Service Detail</ion-title> -->
+          <ion-title>{{Servicedetail.ServiceTitle}}</ion-title>
+    </ion-navbar>
+   
+  </ion-header>
+<ion-content >
+ 
+  <img *ngIf="!Servicedetail.ImageURL" style="height: 220px;" src="assets/imgs/blankimage.png" />
+
+  <img *ngIf="Servicedetail.ImageURL" [src]="imagelocation+Servicedetail.ImageURL"/>
+  <!-- <ion-title class="titleclass" >{{Servicedetail.ServiceTitle}} <button (click)="openRelatetPage(pginfo)" class="cartbutton" shape="round" color="success">
+    Book Now
+</button></ion-title> -->
+
+<ion-list>
+  <ion-item>
+    <ion-label>Preferred language</ion-label>
+    <ion-select (ionChange)="getSelectedLang($event)" interface="popover" >
+      <!-- <ion-option *ngIf="def_lang.val=='English'" [value]="def_lang.val" [selected]="true"></ion-option> -->
+      <ion-option [selected]="lang.ConfigVal==def_lang.val ? 'true' : 'false' "*ngFor="let lang of languageobj" [value]="lang.ConfigVal">{{lang.ConfigDisplayVal}}</ion-option>
+    
+    </ion-select>
+  </ion-item>
+</ion-list>
+  <p padding>{{Servicedetail.ServiceShortDesc}}</p>
+  <!-- <div></div> -->
+  <p padding>{{Servicedetail.ServiceLongDesc}}</p>
+  <ion-list>
+    <ion-item *ngFor="let videourl of ServiceVideo">
+      <div class="blog-post" [innerHtml]="getSantizeUrl(videourl.string_url)"></div>
+    </ion-item>
+  </ion-list>
+  <!-- {{Servicedetail|json}} -->
+  <!-- <ion-note p-end> <ion-icon *ngIf="Servicedetail.ServiceAmount" name="md-cash"> </ion-icon> {{Servicedetail.ServiceCurrency}} &nbsp;&nbsp;{{Servicedetail.ServiceAmount}}</ion-note> -->
+  <h3 padding *ngIf="timelistobj?.length >0">Service Time</h3>
+  
+
+  <!-- [
+  {
+    "ServiceID": "57",
+    "TempleID": "105",
+    "ServiceType": "2",
+    "ServiceTitle": "zxc",
+    "OBPageName": "",
+    "ServiceShortDesc": "asudhasujdk",
+    "ServiceLongDesc": "kjasdhkjasdhkasdhkja",
+    "OBPossible": "0",
+    "OBURL": "#",
+    "CreatedDate": "2020-01-20",
+    "ID": "40",
+    "Day": "Tuesday",
+    "FromTime": "12:00",
+    "ToTime": "12:00",
+    "timzone": "America/Los_Angeles",
+    "Details": "kjkjlkl",
+    "Remarks": "lkjkjlkl"
+  }
+] -->
+
+  
+  <ion-list  *ngFor="let item of timelistobj" >
+
+    
+    <ion-card id="{{item.EventsID}}" padding>
+    <ion-list >
+     
+      <ion-list  >
+        <label no-padding><strong>Service Day:</strong> {{item.Day}}</label>
+      </ion-list>
+        <p>Time  From ({{item.FromTime}}) To ({{item.ToTime}}) </p>
+    </ion-list>
+    <ion-list  >
+      <label no-padding > {{item.Details}}</label>
+    </ion-list>
+      <p><b>Remarks:- </b>{{item.Remarks}} </p>
+  
+  </ion-card>
+  
+  </ion-list>
+  <!-- <p>{{Servicedetail.ServiceLongDesc}}</p> -->
+  <div padding style="float:inline-end">
+  <!-- <button *ngIf='!cartadded' class="cartbutton" (click)='addtoCart(Servicedetail)' shape="round" color="success">
+      Add to cart<ion-icon  name="cart"></ion-icon>
+  </button>
+  <button *ngIf='cartadded' class="cartbutton" (click)='gotoCart()' shape="round" color="success">
+      Go to cart<ion-icon  name="cart"></ion-icon>
+  </button> -->
+  
+  </div>
+
+</ion-content>
+<ion-footer class="adminfooter" style="bottom: 56px;text-align: center;background-color: var(--color);font-weight: bold;font-size: 15px;/* color: white; */">
+  <ion-toolbar *ngIf='Servicedetail.ServiceAmount>0 && Servicedetail.Service_Amount_Office>0' (click)="openDonatePage('temple')"  style="width: 49%;float: left; border-right: 2px solid #ffffff;">        
+    At Temple ( {{Servicedetail.ServiceCurrency}} {{Servicedetail.ServiceAmount}} )
+  
+  </ion-toolbar>
+  <ion-toolbar *ngIf='Servicedetail.ServiceAmount>0 && Servicedetail.Service_Amount_Office==0' (click)="openDonatePage('temple')"  style="width: 100%; border-right: 2px solid #ffffff;">        
+    At Temple ( {{Servicedetail.ServiceCurrency}} {{Servicedetail.ServiceAmount}} )
+  
+  </ion-toolbar>
+  <ion-toolbar  *ngIf='Servicedetail.ServiceAmount>0 && Servicedetail.Service_Amount_Office>0'  (click)="openDonatePage('home')"   style="width: 49%;float: right;"> 
+  
+    At Home / Office ({{Servicedetail.ServiceCurrency}} {{Servicedetail.Service_Amount_Office}})
+  
+  </ion-toolbar>
+  <ion-toolbar   *ngIf='Servicedetail.ServiceAmount==0 && Servicedetail.Service_Amount_Office>0'  (click)="openDonatePage('home')"   style="width: 100%;"> 
+  
+    At Home / Office ({{Servicedetail.ServiceCurrency}} {{Servicedetail.Service_Amount_Office}})
+  
+  </ion-toolbar>
+</ion-footer>

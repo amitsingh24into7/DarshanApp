@@ -1,0 +1,26 @@
+page-donation {
+    .formlabelicon {
+        text-align: center;
+        line-height: 2;
+        margin-bottom: 0 !important;
+        font-size: 22px;
+        margin-top: 0px !important;
+        margin-right: 0px !important;
+        color:var(--color)
+}
+
+.error {
+    color: rgb(223, 62, 62);
+    font-size: 11px;
+  }
+
+  .error1 {
+    color: rgb(75, 75, 75);
+    border-bottom: 1px solid #ff0000;
+  }
+// .paymentalert .alert-wrapper {
+//     top:unset !important;
+//     position: unset !important;   
+//     position: initial !important;
+// }
+}

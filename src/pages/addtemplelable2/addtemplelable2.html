@@ -1,0 +1,45 @@
+<!--
+  Generated template for the Addtemplelable2Page page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title  style="text-align: center;">Temple Address</ion-title>
+    <ion-buttons end> 
+      <button   (click)="doFormSubmit()"  ion-button icon-only >
+        Next <ion-icon name="ios-arrow-forward-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <!-- <form  [formGroup]="addtemplelsecond" enctype="multipart/form-data" (submit)="doFormSubmit()" >
+    -->
+    
+    <!-- <ion-item no-padding>
+      <ion-avatar class="formlabelicon" item-start>
+        <ion-icon name="clipboard"></ion-icon>
+      </ion-avatar>
+      
+      <ion-textarea  rows="4" cols="20"  required placeholder="Please select your address" [(ngModel)]="accountlabelobj.address" formControlName="address" readonly></ion-textarea>
+    </ion-item> -->
+    
+    <!-- <div padding>
+      <button ion-button class='buttoncolor' block>Next</button>
+    </div> -->
+<!--     
+</form> -->
+<ion-toolbar>
+  <ion-searchbar [(ngModel)]="autocomplete.input" (ionInput)="updateSearchResults()" placeholder="Search for a place"></ion-searchbar>
+</ion-toolbar>
+<ion-list [hidden]="autocompleteItems.length == 0">
+  <ion-item *ngFor="let item of autocompleteItems" tappable (click)="selectSearchResult(item)">
+    {{ item.description }}
+  </ion-item>
+</ion-list>
+<div id="map_canvas" style="height: 100%;"></div> 
+  
+</ion-content>

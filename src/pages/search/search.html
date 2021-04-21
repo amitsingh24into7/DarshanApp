@@ -1,0 +1,55 @@
+<ion-header>
+
+  <ion-navbar>
+    
+    <!-- <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button> -->
+<ion-title>Contacts</ion-title>
+    <ion-buttons end> 
+      <button ion-button icon-only >
+        <ion-icon name="ios-notifications-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end> 
+      <button ion-button icon-only >
+        <ion-icon name="ios-help-circle-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-searchbar (ionInput)="getItems($event)" placeholder="{{ 'SEARCH_PLACEHOLDER' | translate }}"></ion-searchbar>
+  <!--<ion-list>
+    <button (ionFocus)="radioFocus()"
+    (ionSelect)="radioSelect($event)"
+    (ionBlur)="radioBlur()" ion-item  *ngFor="let contacts of allContacts">
+      
+      <ion-label><h2>{{contacts.displayName}}</h2><p>{{contacts.phoneNumbers |json}}</p></ion-label>
+      
+      <ion-radio *ngIf="addobject"  slot="start"
+                       name="numberval"
+                       value="{{contacts.phoneNumbers | json}}"
+                       checked="false"
+                       color="primary"></ion-radio>
+      <ion-note item-end *ngIf="contacts.note">{{contacts.note}}</ion-note>
+    </button>
+  </ion-list>-->
+  <div *ngFor="let contacts of allContacts">
+    <ion-item *ngIf="contacts.displayName" >
+      <ion-label><h2>{{contacts.displayName}}</h2><p>{{contacts.phoneNumbers[0].value}}</p></ion-label>
+      <ion-radio slot="start" (ionFocus)="radioFocus()"
+      (ionSelect)="radioSelect($event)"
+      (ionBlur)="radioBlur()"
+                 name="numberval"
+                 value='{{contacts.phoneNumbers[0].value}}'
+                 checked="false"
+                 color="primary" *ngIf="addobject"></ion-radio>
+  </ion-item>
+  </div>
+  
+</ion-content>

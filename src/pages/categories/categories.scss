@@ -1,0 +1,44 @@
+page-categories {
+    .closebtn{
+        background-color: transparent;
+		font-size: 24px;
+		float: left;
+    }
+    .closebtn ion-icon{
+            color:#000;
+
+    }
+    .applysearchbtn{
+        background-color: var(--color);
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+    }
+    .closebtn{
+        background-color: transparent;
+		font-size: 24px;
+		float: left;
+    }
+    .applysearchbtn{
+        background-color: var(--color);
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    }
+.formrow {
+	overflow:hidden;
+	position:relative;
+	width: auto !important;
+    float: left;
+	margin:auto;
+	padding:10px;
+	background:#fff;
+}
+.heading{
+    padding-left: 16px;
+    font-size: 18px;
+    padding-top: 9px;
+}
+}

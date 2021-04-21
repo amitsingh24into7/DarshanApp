@@ -1,0 +1,189 @@
+<ion-header > 
+
+  <ion-navbar>
+      <!-- <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button> -->
+        <ion-title>W2W</ion-title>
+        <ion-buttons end> 
+        <ion-label>{{geoAddress }}</ion-label>
+        </ion-buttons>
+        <ion-buttons (click)="openModule('NotificationPage')" end> 
+          <button ion-button icon-only >
+          
+            <ion-icon name="ios-notifications-outline"></ion-icon>
+            <label *ngIf="notiCount>0" style="left: 15px;top: -4px;position: absolute;color: white;background: black;border-radius: 20px;min-width: 18px;">{{notiCount}}</label>
+          </button>
+        </ion-buttons>
+        <ion-buttons (click)="openModule('TodayCalendarPage')" end> 
+          <button ion-button icon-only >
+            <ion-icon name="ios-calendar-outline"></ion-icon>
+          </button>
+        </ion-buttons>
+        <!-- <ion-buttons end> 
+          <button ion-button icon-only >
+            <ion-icon name="ios-help-circle-outline"></ion-icon>
+          </button>
+        </ion-buttons> -->
+        <ion-buttons (click)='openmyCart()' end> 
+          <button ion-button icon-only >
+              
+            <ion-icon name="basket"></ion-icon>
+            <div style="margin-bottom: 27px; display: none;">1</div>
+          </button>
+        </ion-buttons>
+        <!-- <ion-buttons (click)='openmyCartlist()' end> 
+          <button ion-button icon-only >
+              
+            <ion-icon name="cart"></ion-icon>
+            <div style="margin-bottom: 27px; display: none;">1</div>
+          </button>
+        </ion-buttons> -->
+
+      
+  </ion-navbar>
+
+</ion-header >
+
+
+<ion-content >
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+  
+    <div>
+
+
+  <ion-slides  slidesPerView="4"  loop="false" speed="500"  dir="{{dir}}" (ionSlideWillChange)="onSlideChangeStart($event)">
+          <ion-slide *ngFor="let item of ServiceType">
+            <ion-list>
+              <button  (click)="openModule(item.compNmae)" ion-item >
+                  <label> <div><ion-icon class="iconclass" name="{{item.icon}}"></ion-icon> <p class="labelfont">{{item.title}}</p></div> </label>
+                     
+              </button>
+             </ion-list>
+          </ion-slide>
+          <!-- <ion-slide>
+            <ion-list>
+              <button  (click)="openmodulevideo('VideoplayerPage')" ion-item >
+                  <label> <div><ion-icon class="iconclass" name="logo-youtube"></ion-icon> <p class="labelfont">Video</p></div> </label>
+                     
+                  </button>
+             </ion-list>
+          </ion-slide> -->         
+    </ion-slides>
+  </div>
+  <ion-list *ngIf="MyTemples && MyTemples.length">
+    <label>My Temples</label>
+  </ion-list>
+
+  <!-- <ion-slides  class="Populartemple_slider Mytempleslider" *ngIf="MyTemples && MyTemples.length"  loop="true" slidesPerView="2"  autoplay="2300" speed="1000">
+    <ion-slide *ngFor="let item of MyTemples" >
+      <ion-card (click)="openModule('TemplesPage')" >
+        <img style="width: 100%; min-height: 235px;" [src]="imagelocation+item.imageurl" /> 
+        <label class="slidertext"> {{item.title}}</label>  
+      </ion-card>
+    </ion-slide> -->
+    <ion-slides  class="Populartempleslider Mytempleslider" *ngIf="MyTemples && MyTemples.length && !singelTemple"  loop="true" slidesPerView="2" speed="1000">
+      <ion-slide *ngFor="let item of MyTemples" >
+        <ion-card  class="redious" (click)="openModuleslider('ItemDetailPage',item)" >
+          <!-- <ion-card > -->
+          <img style="width: 100%; min-height: 205px;" [src]="imagelocation+item.ImageURL" /> 
+          <label class="slidertext"> {{item.title}}</label>  
+        </ion-card>
+      </ion-slide>
+    
+  </ion-slides>
+  <ion-slides  class="Populartempleslider Mytempleslider" *ngIf="MyTemples && MyTemples.length && singelTemple"  loop="false" slidesPerView="1" speed="1000">
+    <ion-slide *ngFor="let item of MyTemples" >
+      <ion-card  class="redious" (click)="openModuleslider('ItemDetailPage',item)" >
+        <!-- <ion-card > -->
+        <img style="width: 100%; min-height: 205px;" [src]="imagelocation+item.ImageURL" /> 
+        <label class="slidertext"> {{item.title}}</label>  
+      </ion-card>
+    </ion-slide>
+
+
+</ion-slides>
+  <ion-list *ngIf="TempleEvents && TempleEvents.length" >
+    <label>Temple Events</label>
+  </ion-list>
+
+  <ion-slides  class="Populartempleslider Mytempleslider" *ngIf="TempleEvents && TempleEvents.length"  loop="true" slidesPerView="2" speed="1000">
+    <ion-slide *ngFor="let item of TempleEvents" >
+      <ion-card class="redious" (click)="openModuleslider('EventdetailPage',item)" >
+        <img style="width: 100%; min-height: 205px;" [src]="imagelocation+item.ImageURL" /> 
+        <label class="slidertext"> {{item.title}}</label>  
+      </ion-card>
+    </ion-slide>
+
+ 
+</ion-slides>
+
+  <!-- <ion-list *ngIf="(getpopulartemples && getpopulartemples.length) && !singelTemple">
+    <label>Popular Temples</label>
+  </ion-list>
+  <ion-slides  *ngIf="(getpopulartemples && getpopulartemples.length) && !singelTemple" class="Popularproductsslider"  slidesPerView="3"  autoplay="2000" loop="true" speed="500"  dir="{{dir}}" (ionSlideWillChange)="onSlideChangeStart($event)">
+    <ion-slide *ngFor="let item of getpopulartemples">
+      <ion-card class="redious"  (click)="openModuleslider('ItemDetailPage',item)" >
+        <img style="width: 100%;" [src]="imagelocation+item.ImageURL" /> 
+        <label class="productsSlidertext"> {{item.title}}</label>  
+      </ion-card>
+    </ion-slide>
+   
+    </ion-slides> -->
+    
+    <ion-list *ngIf="recentActivityoflist!null">
+      <label>Recent Activity</label>
+    </ion-list>
+
+    <ion-slides *ngIf="recentActivityoflist!null"  class="Populartempleslider Mytempleslider"  slidesPerView="2"  autoplay="true" loop="true" speed="500"  dir="{{dir}}" (ionSlideWillChange)="onSlideChangeStart($event)">
+      <ion-slide *ngFor="let item of recentActivityoflist">
+        <ion-card class="redious" (click)="openModuleslider('ItemDetailPage',item)" >
+          <img style="width: 100%; min-height: 205px;" [src]="imagelocation+item.ImageURL" /> 
+          <label class="slidertext"> {{item.TempleName}}</label>  
+        </ion-card>
+      </ion-slide>
+      </ion-slides>
+      <br>
+    
+        <!-- <ion-row> -->
+            <!-- <ion-item no-lines>
+              <ion-slides class="Populartempleslider Mytempleslider"  slidesPerView="2"  autoplay="true" loop="true" speed="500"  dir="{{dir}}" (ionSlideWillChange)="onSlideChangeStart($event)">
+                <ion-slide >
+                  <img style="height: 100px;" src="../../assets/imgs/Namaste.png"  class="scroll-item"/>
+                </ion-slide>
+                <ion-slide >
+                  <img  style="height: 100px;" src="../../assets/imgs/Namaste.png"  class="scroll-item"/>
+                </ion-slide>
+                <ion-slide >
+                  <img  style="height: 100px;" src="../../assets/imgs/Namaste.png"  class="scroll-item"/>
+                </ion-slide>
+                </ion-slides>
+
+
+
+           
+            </ion-item> -->
+            <div class="thumnails">
+              <div class="list-thumbnail">
+                <!-- *ngFor="let list of ads_list_obj" -->
+                <div  *ngFor="let list of ads_list_obj"  class="img-thumb"  >
+                  <!-- {{ads_list_obj|json}} -->
+                
+                    <a (click)="opencommanPage(list.href,list.adsID)" > <img style=" width: 100%; " [src]="list.image"  class="scroll-item"/></a>
+                 <!-- <img   src="../../assets/imgs/Namaste.png"  class="scroll-item"/>
+                 <img   src="../../assets/imgs/Namaste.png"  class="scroll-item"/> -->
+                 <!-- <a target="_blank" [href]="list.href"> <img  [src]="list.image"  class="scroll-item"/></a>
+                  -->
+                </div>
+              </div>
+            </div>
+        <!-- </ion-row> -->
+       
+</ion-content>

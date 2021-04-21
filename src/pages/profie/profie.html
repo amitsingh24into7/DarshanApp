@@ -1,0 +1,106 @@
+<ion-header>
+
+  <ion-navbar>
+    
+          <!-- <button ion-button menuToggle>
+              <ion-icon name="menu"></ion-icon>
+            </button> -->
+        
+     
+    <!--<ion-title>{{ pageTitle }}</ion-title>-->
+    <ion-title>Profile</ion-title>
+
+    <!-- <ion-buttons style="min-width: 45px; text-align: center;" end> 
+      <button ion-button icon-only >
+        <ion-icon name="ios-notifications-outline"></ion-icon>
+      </button>
+    </ion-buttons> -->
+    <ion-buttons style="min-width: 45px; text-align: center;" end> 
+      <button (click)="c_openCommonModule('CommonPage','faqpage')" ion-button icon-only >
+        <ion-icon name="ios-help-circle-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons (click)="logoutFunction()" style="min-width: 45px; text-align: center;" end> 
+      <button ion-button icon-only >
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+ 
+ 
+  <div class="profilecontent">
+    <div class="profileimg">
+      <ion-icon name="contact"></ion-icon>
+    </div>
+    <div class="profiledetail">
+      <ion-label *ngIf="account.phone"><b>{{account.phone}}</b></ion-label>
+      <ion-label *ngIf="account.username"><b>{{account.username}}</b></ion-label>
+      <p *ngIf="account.email">{{account.email}}</p>
+    </div>
+    
+  </div>
+  <ion-list>
+    
+      <button ion-item (click)="languagemodel()" >
+        <ion-avatar item-start>
+          <ion-icon class="profileicon" name="bookmark"></ion-icon>
+        </ion-avatar>
+        <h2>My Language</h2>
+        
+        <ion-note item-end >{{userLang}}</ion-note>
+      </button>
+      <!-- <button (click)="changepass()" ion-item >
+        <ion-avatar item-start>
+          <ion-icon class="profileicon" name="lock"></ion-icon>
+        </ion-avatar>
+        <h2>Change Password</h2>
+        
+        
+      </button> -->
+      <button (click)="openMyFamilyListPage()" ion-item >
+        <ion-avatar item-start>
+          <ion-icon class="profileicon" name="contacts"></ion-icon>
+        </ion-avatar>
+        <h2>My Family</h2>
+        
+        
+      </button>
+      <button (click)="c_openCommonModule('CommonPage','myaddress')" ion-item >
+        <ion-avatar item-start>
+          <ion-icon class="profileicon" name="locate"></ion-icon>
+        </ion-avatar>
+        <h2>My Address</h2>
+      </button>
+      <!-- <button ion-item (click)="openmapPage()" >
+        <ion-avatar item-start>
+          <ion-icon class="profileicon" name="locate"></ion-icon>
+        </ion-avatar>
+        <h2>Map</h2>
+      </button> -->
+      <button (click)="editprofile()" ion-item >
+        <ion-avatar item-start>
+          <ion-icon class="profileicon" name="sync"></ion-icon>
+        </ion-avatar>
+        <h2>Edit Profile</h2>
+      </button>
+      <button (click)="openModule()" ion-item >
+        <ion-avatar item-start>
+          <ion-icon class="profileicon" name="cart"></ion-icon>
+        </ion-avatar>
+        <h2>My Booking</h2>
+      </button>
+      <!-- (click)="openSubscribelist()" -->
+      <button (click)="c_openCommonModule('CommonPage','myTemple')" ion-item >
+        <ion-avatar item-start>
+          <ion-icon class="profileicon" name="home"></ion-icon>
+        </ion-avatar>
+        <h2>My Temples</h2>
+      </button>
+
+  </ion-list>
+</ion-content>

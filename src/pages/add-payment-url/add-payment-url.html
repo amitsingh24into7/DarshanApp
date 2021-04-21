@@ -1,0 +1,63 @@
+<!--
+  Generated template for the AddPaymentUrlPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Donation URL</ion-title>
+    <ion-buttons    end> 
+      <button [disabled]="!addtemplelPaymenturl.valid"  (click)="doFormSubmit()"  ion-button icon-only >
+        Next <ion-icon name="ios-arrow-forward-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+ 
+    <form (submit)="doFormSubmit()"  [formGroup]="addtemplelPaymenturl" >
+     
+      <ion-item  no-padding>
+        <ion-avatar class="formlabelicon" item-start>
+          <ion-icon name="pint"></ion-icon>
+        </ion-avatar>
+        <ion-input placeholder="Title" type="text" required [(ngModel)]="payurlobj.title" formControlName="title"></ion-input>
+        <!-- <ion-input placeholder="Title" type="text" required [(ngModel)]="payurlobj.title" formControlName="title"></ion-input> -->
+      </ion-item>
+      <label no-padding  class="errormessage" *ngIf="!addtemplelPaymenturl.controls.title.valid && (addtemplelPaymenturl.controls.title.dirty)"> Please Enter Title.
+      </label> 
+
+      <ion-item  no-padding>
+        <ion-avatar class="formlabelicon" item-start>
+           <ion-icon ios="ios-link" md="md-link"></ion-icon>
+        </ion-avatar>
+        <ion-input placeholder="URL" type="text" required [(ngModel)]="payurlobj.url" formControlName="url"></ion-input>
+        <!-- <ion-input placeholder="Title" type="text" required [(ngModel)]="payurlobj.title" formControlName="title"></ion-input> -->
+      </ion-item>
+      <label no-padding  class="errormessage" *ngIf="!addtemplelPaymenturl.controls.url.valid && (addtemplelPaymenturl.controls.url.dirty)"> Please Enter URL.
+      </label>
+
+      <ion-item  no-padding>
+        <ion-avatar class="formlabelicon" item-start>
+          <ion-icon ios="ios-cash" md="md-cash"></ion-icon>
+        </ion-avatar>
+        <ion-input placeholder="Amount" type="text"  [(ngModel)]="payurlobj.amount" formControlName="amount"></ion-input>       
+      </ion-item>
+     
+
+      <ion-item  no-padding>
+        <ion-avatar class="formlabelicon" item-start>
+          <ion-icon name="clipboard"></ion-icon>
+        </ion-avatar>
+        <ion-textarea placeholder="Description" rows="4" cols="20"   [(ngModel)]="payurlobj.desc" formControlName="desc"></ion-textarea>
+      </ion-item>
+      <ion-item  no-padding>
+        <ion-avatar class="formlabelicon" item-start>
+          <ion-icon name="clipboard"></ion-icon>
+        </ion-avatar>
+        <ion-textarea placeholder="Remarks" rows="4" cols="20"   [(ngModel)]="payurlobj.remarks" formControlName="remarks"></ion-textarea>
+      </ion-item>
+  </form>
+</ion-content>

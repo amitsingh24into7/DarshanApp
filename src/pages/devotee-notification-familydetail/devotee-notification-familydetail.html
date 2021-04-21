@@ -1,0 +1,99 @@
+<!--
+  Generated template for the DevoteeNotificationFamilydetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Share Notification</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <!-- *ngIf="parmofpage.marriagedate!='0000-00-00'" -->
+  <!--<ion-list>
+    <h2>{{parmofpage.UserName}}</h2>
+    <button *ngIf="parmofpage.birthdate!='0000-00-00'" ion-button clear p-end class="sharebtn" style="background-color: burlywood; font-size: 10px;" (click)="selecttemplate(parmofpage,'birthdate')">
+    
+      Send Notification
+    </button>
+    <p  *ngIf="parmofpage.birthdate!='0000-00-00'">Birth Date: {{parmofpage.birthdate}}</p><br>
+
+    <button *ngIf="parmofpage.marriagedate!='0000-00-00'" style="background-color: burlywood; font-size: 10px;" ion-button clear p-end class="sharebtn"  (click)="selecttemplate(parmofpage,'marriagedate')">
+     
+      Send Notification
+    </button>
+    <p  *ngIf="parmofpage.marriagedate!='0000-00-00'"> Marriage Date: {{parmofpage.marriagedate}}  </p>
+    <br>
+    <button style="background-color: burlywood; font-size: 10px;"  *ngIf="parmofpage.deathdate!='0000-00-00' && parmofpage.deathdate" ion-button clear p-end class="sharebtn"  (click)="selecttemplate(parmofpage,'deathdate')">
+      
+      Send Notification
+    </button>
+
+    <p *ngIf="parmofpage.deathdate!='0000-00-00' && parmofpage.deathdate">Death Date: {{parmofpage.deathdate}}</p>
+    <ion-card>
+      <ion-card-header>
+         Event of family 
+      </ion-card-header>
+    
+      <ion-card-content>
+       
+        <ion-item-group *ngFor="let family of familyobj">
+          <ion-item-divider>
+            <ion-label style="font-weight: bolder;">{{family.nametitle}} {{family.name}} <p style="float: right;"  label-end >({{family.realtionship}})</p></ion-label>
+            
+          </ion-item-divider>
+          <ion-list>
+          <ion-item *ngIf="family.birthdate!='0000-00-00'">
+            <ion-label> <p  >Birth Date: {{family.birthdate}}</p></ion-label>
+
+            <button style="background-color: burlywood; font-size: 10px;" ion-button clear item-end class="sharebtn"  (click)="selecttemplate(family,'birthdate','family')">
+             
+              Send Notification
+            </button>
+
+          </ion-item>
+          <ion-item *ngIf="family.marriagedate!='0000-00-00'">
+            <ion-label> <p  > Marriage Date: {{family.marriagedate}} </p></ion-label>
+            <button style="background-color: burlywood; font-size: 10px;"  ion-button clear item-end class="sharebtn"  (click)="selecttemplate(family,'marriagedate','family')">
+              
+              Send Notification
+            </button>
+          </ion-item>
+          
+          <ion-item *ngIf="family.deathdate!='0000-00-00' && family.deathdate">
+            <ion-label> <p >Death Date: {{family.deathdate}}</p></ion-label>
+            <button style="background-color: burlywood; font-size: 10px;" ion-button clear item-end class="sharebtn"  (click)="selecttemplate(family,'deathdate','family')">
+             
+              Send Notification
+            </button>
+          </ion-item>
+        </ion-list>
+        </ion-item-group>
+       
+       
+       
+      </ion-card-content>
+    </ion-card>
+  </ion-list>-->
+
+  <ion-list> 
+    
+    <ion-card padding  *ngFor="let notification of listofNotification">
+      <ion-card-title>{{notification.title}}
+        
+        <button   end class="sharebtn" ion-button icon-only (click)="socialSharingFunction(notification.id,notification.title,notification.description)" clear>
+          {{notification.category}} <ion-icon style="margin-left: 10px;" size="large" name="md-share"></ion-icon>
+        </button>
+      </ion-card-title>
+      <label [innerHTML]="notification.description"></label>
+      <label  style="padding-left:0px"  >{{notification.createddate}}</label>
+      
+      <ion-list *ngFor="let img of imglist">
+        <a [href]="img.image_url" target="_blanck">Attechment Downloade</a>
+      </ion-list>
+    </ion-card>
+  </ion-list>
+
+</ion-content>

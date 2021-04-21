@@ -1,0 +1,119 @@
+<!--
+  Generated template for the AddservicePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title style="text-align: center !important;">Temple Service</ion-title>
+    <ion-buttons    end> 
+      <button [disabled]="!addtemplelfirst.valid"  (click)="doFormSubmit()"  ion-button icon-only >
+        Next <ion-icon name="ios-arrow-forward-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form (submit)="doFormSubmit()"  [formGroup]="addtemplelfirst" >
+    <ion-list *ngIf="this.isupdate">
+      <ion-item>
+        <ion-label>Preferred language</ion-label>
+        <ion-select (ionChange)="getSelectedLang($event)" interface="popover" >
+          <!-- <ion-option *ngIf="def_lang.val=='English'" [value]="def_lang.val" [selected]="true"></ion-option> -->
+          <ion-option [selected]="lang.ConfigVal==def_lang.val ? 'true' : 'false' " *ngFor="let lang of languageobj" [value]="lang.ConfigVal">{{lang.ConfigDisplayVal}}</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+
+    <ion-item  no-padding>
+      <ion-avatar class="formlabelicon" item-start>
+        <ion-icon name="pint"></ion-icon>
+      </ion-avatar>
+     
+      <ion-input placeholder="Service  Title" type="text" required [(ngModel)]="account.ServiceTitle" formControlName="ServiceTitle"></ion-input>
+    </ion-item>
+    <label no-padding  class="errormessage" *ngIf="!addtemplelfirst .controls.ServiceTitle.valid && (addtemplelfirst .controls.ServiceTitle.dirty)"> Please enter a Service  Title.
+    </label> 
+     <ion-item no-padding>
+      <ion-avatar class="formlabelicon" item-start>
+        <ion-icon name="paper"></ion-icon>
+      </ion-avatar>
+      <ion-input placeholder="Short Desc" type="text"  [(ngModel)]="account.ServiceShortDesc" formControlName="ServiceShortDesc"></ion-input>
+    </ion-item>
+    <label no-padding  class="errormessage" *ngIf="!addtemplelfirst .controls.ServiceShortDesc.valid && (addtemplelfirst .controls.ServiceShortDesc.dirty)"> Please enter Short Desc.
+    </label> 
+    <ion-item no-padding>
+      <ion-avatar class="formlabelicon" item-start>
+        <ion-icon name="outlet"></ion-icon>
+      </ion-avatar>
+      
+      
+      <ion-select style="max-width: 100% !important" placeholder="Select Service Type" [(ngModel)]="account.ServiceType" formControlName="ServiceType">
+        <ion-option *ngFor="let list of templeserviceListobj" value="{{list.ID}}">{{list.ConfigDisplayVal}}</ion-option>
+        
+      </ion-select>
+    </ion-item>
+    <label no-padding  class="errormessage" *ngIf="!addtemplelfirst .controls.ServiceType.valid && (addtemplelfirst .controls.ServiceType.dirty)"> Please select one.</label>
+    
+
+    <ion-item  no-padding>
+      <ion-avatar class="formlabelicon" item-start>
+        <ion-icon name="md-cash"></ion-icon>
+      </ion-avatar>
+  
+      <ion-select placeholder="Select currency" [(ngModel)]="account.ServiceCurrency" formControlName="ServiceCurrency" style="max-width: 100% !important">
+        
+        <ion-option *ngFor="let crranc of currency" value="{{crranc.ConfigVal}}">{{crranc.ConfigDisplayVal}}</ion-option>
+        
+      </ion-select>
+      
+    </ion-item>
+    <label no-padding  class="errormessage" *ngIf="!addtemplelfirst .controls.ServiceCurrency.valid && (addtemplelfirst .controls.ServiceCurrency.dirty)"> Please enter a Service Amount.
+    </label> 
+    <!-- <label no-padding  class="errormessage" *ngIf="!account .controls.ServiceCurrency.valid && (account .controls.ServiceCurrency.dirty)"> Please select one.
+    </label>  -->
+
+    <ion-item  no-padding>
+      <ion-avatar class="formlabelicon" item-start>
+        <ion-icon name="md-cash"></ion-icon>
+      </ion-avatar>
+     
+      <ion-input placeholder="At Temple Amount" type="number" required [(ngModel)]="account.ServiceAmount" formControlName="ServiceAmount"></ion-input>
+    </ion-item>
+    <label no-padding  class="errormessage" *ngIf="!addtemplelfirst .controls.ServiceAmount.valid && (addtemplelfirst .controls.ServiceAmount.dirty)"> Please enter a Service Amount.
+    </label> 
+    <ion-item  no-padding>
+      <ion-avatar class="formlabelicon" item-start>
+        <ion-icon name="md-cash"></ion-icon>
+      </ion-avatar>
+     
+      <ion-input placeholder="AT Office/Home Amount" type="number" required [(ngModel)]="account.ServiceAmount_office" formControlName="ServiceAmount_office"></ion-input>
+    </ion-item>
+    <label no-padding  class="errormessage" *ngIf="!addtemplelfirst .controls.ServiceAmount_office.valid && (addtemplelfirst .controls.ServiceAmount_office.dirty)"> Please enter a Service Amount AT Office/Home.
+    </label>
+
+    <ion-item  no-padding>
+      <ion-avatar class="formlabelicon" item-start>
+        <ion-icon name="clipboard"></ion-icon>
+      </ion-avatar>
+      <ion-textarea placeholder="Long Description" rows="4" cols="20"   [(ngModel)]="account.ServiceLongDesc" formControlName="ServiceLongDesc"></ion-textarea>
+    </ion-item>
+    <label no-padding  class="errormessage" *ngIf="!addtemplelfirst .controls.ServiceLongDesc.valid && (addtemplelfirst .controls.ServiceLongDesc.dirty)"> Please enter Long Description.
+    </label>
+    <!-- <ion-item no-padding>
+      <ion-avatar class="formlabelicon" item-start>
+        <ion-icon name="ios-aperture-outline"></ion-icon>
+      </ion-avatar>
+      <ion-select style="max-width: 100% !important;" required [(ngModel)]="account.isonlineser" name="isonlineser"  placeholder="Online Order Pssible">
+        <ion-option value="y">Yes</ion-option>
+        <ion-option value="n">No</ion-option>
+      </ion-select>
+    </ion-item> -->
+
+  
+</form>
+<!-- {{templeserviceobj |json}} -->
+</ion-content>

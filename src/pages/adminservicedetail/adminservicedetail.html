@@ -1,0 +1,101 @@
+<!--
+  Generated template for the AdminservicedetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Service Details</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <img *ngIf="pgdetailitomobj.ImageURL==null && !pgdetailitomobj.ImageURL" style="height: 220px;" src="assets/imgs/blankimage.png" />
+
+<img *ngIf="pgdetailitomobj.ImageURL!=null && pgdetailitomobj.ImageURL" style="height: 220px;" [src]="imagelocation+pgdetailitomobj.ImageURL" />
+
+<label style=" float: right; bottom: 42px; right: 15px; font-size: 26px; position: relative; " (click)="openimagegall('ServicegalleryPage',pgdetailitomobj)"><ion-icon name="images"></ion-icon></label>
+
+  <div padding>     
+    <ion-list style="text-align: end; padding-right: 19px;">
+      <ion-note  style="color: var(--color); margin-right: 10px;"> At Temple  <ion-icon *ngIf="pgdetailitomobj.ServiceAmount" name="md-cash"> </ion-icon> {{pgdetailitomobj.ServiceCurrency}} &nbsp;&nbsp;{{pgdetailitomobj.ServiceAmount}}</ion-note>
+      <ion-note  style="color: var(--color);"> AT Office/Home <ion-icon *ngIf="pgdetailitomobj.ServiceAmount_office" name="md-cash"> </ion-icon>  {{pgdetailitomobj.ServiceCurrency}} &nbsp;&nbsp;{{pgdetailitomobj.ServiceAmount_office}}</ion-note>
+    </ion-list> 
+    <ion-list >
+      <ion-item>
+        <ion-label>Preferred language</ion-label>
+        <ion-select (ionChange)="getSelectedLang($event)" interface="popover" >
+          <!-- <ion-option *ngIf="def_lang.val=='English'" [value]="def_lang.val" [selected]="true"></ion-option> -->
+          <ion-option [selected]="lang.ConfigVal==def_lang.val ? 'true' : 'false' " *ngFor="let lang of languageobj" [value]="lang.ConfigVal">{{lang.ConfigDisplayVal}}</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    <h3>{{pgdetailitomobj.ServiceTitle}}</h3>
+     
+    
+  <h6>{{pgdetailitomobj.ServiceShortDesc}}</h6>
+  <!-- {{stservicetimeobj | json}} -->
+    <ion-item *ngFor="let timesnal of stservicetimeobj">
+      <ion-list style="float: left;" >
+        <ion-icon name="time"> </ion-icon>
+        <label>{{timesnal.Day}}</label>
+        <p> Time From {{timesnal.FromTime}} Time To {{timesnal.ToTime}} </p>
+      </ion-list>
+      <button  ion-button (click)="openmoduleforupdate('AddservicetimePage',timesnal)" style="background-color: var(--color); float: right;">
+        <ion-icon style="color:black" name="create"></ion-icon>
+      </button>
+    </ion-item>
+     
+        
+      <!--<ion-list>
+        <ion-icon name="contact"> </ion-icon> 
+        <label>{{pageinfoobj.contactperson}}</label>
+      </ion-list>
+      <ion-list>
+        <ion-icon name="call"></ion-icon>
+        <label>{{pageinfoobj.contactno}}</label>
+      </ion-list>
+      <ion-list>
+        <ion-icon name="at"> </ion-icon>
+        <label>{{pageinfoobj.contactemail}}</label>
+      </ion-list> -->
+      
+      <!-- <ion-list style="float: left;width: 100%;">
+        <ion-icon style="float: left; " name="ios-navigate-outline"> </ion-icon>
+        <label style="float: left;width: 85%;">{{templeaddress}}</label>
+        <label style="float: left;" end (click)="openModule('Addtemplelable2Page')"><ion-icon name="create"></ion-icon></label>
+      </ion-list> -->
+      <ion-list >
+        <p style="text-align: justify;">{{pgdetailitomobj.ServiceLongDesc}}</p>
+       </ion-list>
+  
+  </div>
+  
+      
+  </ion-content>
+  <ion-footer class="adminfooter" style="bottom: 56px;text-align: center;background-color: var(--color);font-weight: bold;font-size: 15px;">
+  <!-- <ion-toolbar class="footertempdetail" (click)="openimagegall('ServicegalleryPage',pgdetailitomobj)">
+     
+    <ion-icon name="images"></ion-icon>
+    Open gallery
+   
+  </ion-toolbar> -->
+  <ion-toolbar class="footertempdetail" (click)="openmoduleforaddmoretime('AddservicetimePage',pgdetailitomobj)">
+       
+    <ion-icon name="clock"></ion-icon>
+    Service Time   
+  </ion-toolbar>
+  <!-- <ion-toolbar *ngIf="pgdetailitomobj.active!=1" class="footertempdetail" (click)="publishtemple('pgdetailitomobj','Publish')">
+   
+    <ion-icon name="md-paper-plane"></ion-icon>
+    Publish
+  </ion-toolbar>
+  <ion-toolbar *ngIf="pgdetailitomobj.active==1" class="footertempdetail" (click)="publishtemple('pgdetailitomobj','Unpublish')">
+     
+    <ion-icon name="ios-paper-plane"></ion-icon>
+    Unpublish   
+  </ion-toolbar> -->
+
+  </ion-footer>
+  

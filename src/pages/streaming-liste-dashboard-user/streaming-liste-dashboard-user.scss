@@ -1,0 +1,31 @@
+page-streaming-liste-dashboard-user {
+
+    .settinglist{
+        float: left;
+        min-width: 112px;
+    }
+    
+    .settinglist button
+    {
+        text-align: center;
+        font-size:2.6rem !important;
+        
+    }
+    .labelfont{
+        text-align: center;
+    }
+    .settinglist ion-list ion-icon{
+        font-size: 2.2 rem !important;
+    }
+    .settinglist label {
+        padding-left: 10px;
+        float: left !important;
+        width: 100%;
+    }
+    .settinglist .label-md {
+        margin: 20px 8px 0px 0;
+    }
+
+
+
+}

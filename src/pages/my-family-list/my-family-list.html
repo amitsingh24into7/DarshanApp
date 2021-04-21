@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>My Family</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+   
+    <ion-item-sliding  *ngFor="let fam of myfamilylist" >
+      <button (click)="detailfunction(fam)"  ion-item >
+        <h2>{{fam.name}}</h2>
+        <p>{{fam.realtionship}}</p>
+        <ion-note item-end><ion-icon name="ios-arrow-forward-outline"></ion-icon></ion-note>
+      </button>
+      <ion-item-options>
+        <!-- <button ion-button  style="background-color: var(--color);"   >
+          <ion-icon style="color:black" name="more"></ion-icon>
+        </button> -->
+        <button ion-button (click)="openmoduleforupdate('AddFamilyMemberPage',fam)" style="background-color: var(--color);">
+          <ion-icon style="color:black" name="create"></ion-icon>
+        </button>
+        <button (click)="deleteConfirm(fam)" ion-button  style="background-color: var(--color);" >
+          <ion-icon  style="color:black"  name="trash"></ion-icon>
+          </button>
+      </ion-item-options>
+    </ion-item-sliding>
+    
+  
+  </ion-list>
+</ion-content>
+<ion-footer class="adminfooter" style="bottom: 56px;text-align: center;background-color: var(--color);font-weight: bold;font-size: 15px;/* color: white; */">
+  <ion-toolbar (click)="addfamilyMember()">        
+    Add Family Member
+  </ion-toolbar>
+</ion-footer>

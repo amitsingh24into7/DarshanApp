@@ -1,0 +1,102 @@
+page-temples {
+    input.searchbar-input {
+        color: white !important;
+    }
+    .select-md .select-placeholder {
+        color: #4c4c4cb8;
+        font-weight: bold;
+        margin-left: 48px;
+    }
+    .select-text {
+        margin-left: 45px;
+    }
+    // .card-md {
+    //     float: left;
+    //     max-height: 148px;
+    //     margin: 10px;
+    //     border-radius: 2px;
+    //     width: calc(50% - 20px);
+    // }
+    .item-md.item-block .item-inner {
+        padding-right: 0px;
+    }
+    .label-md {
+        margin: 0px 0px 13px 0;
+    }
+    .item-md {
+        padding-left: 10px;
+    }
+    .searchbar-search-icon{
+        display: none !important;
+    }
+    .templeview {
+        padding-left:0px ! important ;
+    }
+   
+    .searchbar-md .searchbar-input {
+        padding: 6px 55px;
+        border-radius: 2px;
+        border: 1px solid #c76918f5;
+       
+        color: black;
+        background-color: transparent;
+        box-shadow:none
+        }
+        .searchbar-input-container{
+            .searchbar-input{
+              &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+                color: rgb(77, 72, 72);
+              }
+              &::-moz-placeholder { /* Firefox 19+ */
+                color: rgb(77, 72, 72);
+              }
+              &:-ms-input-placeholder { /* IE 10+ */
+                color: rgb(77, 72, 72);
+              }
+              &:-moz-placeholder { /* Firefox 18- */
+                color: rgb(77, 72, 72);
+              }
+            }
+           
+        }
+        .button-clear-md {
+            border-color: transparent;
+            color: black;
+            background-color:transparent;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            opacity: 1;
+            border-radius: 10px;
+            float: right;
+        }
+    ion-card img {
+        display: block;
+        width: 100%;
+        // height: 106px;
+    }
+
+    label.searchbox {
+        float: left;
+        top: 10px !important;
+        position: relative;
+    }
+    .searchbox ion-label.label.label-md {
+        margin-bottom: 10px;
+        padding: 5px;
+        border: 1px solid var(--color);
+        border-radius: 5px;
+    }
+    button.disable-hover.bar-buttons.bar-buttons-md.bar-button.bar-button-md.bar-button-default.bar-button-default-md.bar-button-menutoggle.bar-button-menutoggle-md {
+        display: none;
+    }
+    .item-md h5{
+        margin: 2px 0;
+        font-size: 1.6rem;
+        font-weight: bold;
+        line-height: normal;
+    }
+    .item-md p{
+        line-height: 13px;
+    }
+   // .templeview{max-height: 152px;}
+}

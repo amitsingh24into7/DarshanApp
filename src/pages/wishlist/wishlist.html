@@ -1,0 +1,25 @@
+<!--
+  Generated template for the WishlistPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Wishlist</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card *ngFor="let item of wishlistobj">
+          
+    <button (click)="openCartDetail(item)" class="templeview" ion-item >
+        <img  style="width: 16%; float: left;"  [src]="imgpath+item.product_img1" />
+        <h5 style="padding: 3px 0px 0px 10px;float: left;">{{item.product_title}}</h5>
+        <!-- <label class="reviewsblock" start><ion-icon name="star">&nbsp;&nbsp;4.1<p>&nbsp;&nbsp;(100 reviews)&nbsp;&nbsp;|&nbsp;&nbsp;50+ Booked</p></ion-icon></label> -->
+      
+    </button>
+
+    
+  </ion-card>
+</ion-content>

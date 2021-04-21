@@ -1,0 +1,97 @@
+<!--
+  Generated template for the FamilyMemberDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Family Member Detail</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  
+    <ion-list>
+      <ion-item>
+        <ion-label fixed>{{ 'Realtionship' }}</ion-label>
+        <ion-input  readonly type="text" [(ngModel)]="account.realtionship" name="realtionship"></ion-input>
+        
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>{{ 'Name Title' }}</ion-label>
+        <ion-input readonly type="text" [(ngModel)]="account.nametitle" name="nametitle"></ion-input>
+        <!-- <ion-select disabled (ionChange)="onChangeNametitle($event)" [(ngModel)]="account.nametitle" name="nametitle"  style="max-width: 100% !important;" >  
+      
+          <ion-option *ngFor="let list of nametitle" value="{{list.ConfigVal}}">{{list.ConfigDisplayVal}}</ion-option>
+         
+          </ion-select> -->
+        
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>{{ 'Name' }}</ion-label>
+        <ion-input readonly  type="text" [(ngModel)]="account.name" name="name"></ion-input>
+        
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label fixed>{{ 'Email' }}</ion-label>
+        <ion-input readonly  type="email" [(ngModel)]="account.email" name="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>{{ 'Phone'  }}</ion-label>
+        <ion-input  readonly type="number" [(ngModel)]="account.mobile" name="mobile"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>{{ 'Nakshatra' }}</ion-label>
+        <ion-input readonly type="text" [(ngModel)]="account.nakshatra" name="nakshatra"></ion-input>
+       
+      
+        
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>{{ 'Rashi' }}</ion-label>
+        <ion-input readonly type="text" [(ngModel)]="account.rashi" name="rashi"></ion-input>
+        
+        
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>{{ 'Gotra' }}</ion-label>
+      
+        <ion-input readonly type="text" [(ngModel)]="account.gotra" name="gotra"></ion-input>
+        
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>Gender</ion-label>
+        <ion-input readonly type="text" [(ngModel)]="account.gender" name="gender"></ion-input>
+        <!-- <ion-select style="max-width: 100% !important;" [(ngModel)]="account.gender" name="gender" >
+          <ion-option value="Female">Female</ion-option>
+          <ion-option value="Male">Male</ion-option>
+        </ion-select> -->
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>{{ 'BirthDate' }}</ion-label>
+        <ion-input readonly type="text" [(ngModel)]="account.birthdate" name="birthdate"></ion-input>
+       
+        <!-- <ion-datetime   displayFormat="MM/DD/YYYY" [(ngModel)]="account.birthdate" name="birthdate" min="1970-03-14"  value="2002-09-23T15:03:46.789"></ion-datetime> -->
+      </ion-item>
+      <ion-item>
+        <ion-label >{{ 'Marriage Date' }}</ion-label>
+        <ion-input readonly type="text" [(ngModel)]="account.marriagedate" name="marriagedate"></ion-input>
+        <!-- <ion-datetime style="width: 184px;"  displayFormat="MM/DD/YYYY" [(ngModel)]="account.marriagedate" name="marriagedate" min="1990-03-14"  value="2002-09-23T15:03:46.789"></ion-datetime> -->
+        
+      </ion-item>
+      <ion-item *ngIf="isHeavenly">
+        <ion-label >{{ 'Death Date' }}</ion-label>
+        <!-- <ion-input type="text" [(ngModel)]="account.marriagedate" name="marriagedate"></ion-input> -->
+        <ion-datetime style="width: 184px;"  displayFormat="MM/DD/YYYY" [(ngModel)]="account.deathdate" readonly name="deathdate" min="1850-03-14"  ></ion-datetime>
+        
+      </ion-item>
+      <!-- <div padding>
+        <button ion-button class='buttoncolor' block>UPDATE</button>
+      </div> -->
+
+    </ion-list>
+  
+</ion-content>

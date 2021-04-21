@@ -1,0 +1,37 @@
+<!--
+  Generated template for the StreamingListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Streaming List</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+<!-- {{Scheduledobj|json}} -->
+
+
+<ion-list  >
+  <ion-card *ngFor="let item of Scheduledobj">
+    
+     
+      <!-- <img style="height: 50%;"  [src]="imagelocation+item.imageUrl" /> -->
+      <p><label>{{item.stream_title}}</label></p>
+      <p><label>{{item.description}}</label></p>
+      <p><label>stream datetime: {{item.stream_datetime}}</label></p>
+      <!-- <label>stream datetime: {{item.stream_datetime}}</label> -->
+   
+    <button style="background-color: var(--color);text-align: center;width: 49.8%;float: left;" ion-item >
+        Reschedule
+    </button>
+    <button (click)="streaming_Schedul(item.stream_title,item.description)" style="background-color: var(--color);text-align: center;width: 49.8%;float: right;" ion-item >
+      Go live
+  </button>
+
+  </ion-card>
+  
+</ion-list>
+</ion-content>

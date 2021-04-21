@@ -1,0 +1,21 @@
+<!--
+  Generated template for the ReportVolunteerPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Volunteer List</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label>Select Event</ion-label>
+    <ion-select  #C (ionChange)="onChange(C.value)" [(ngModel)]="toppings" multiple="false">
+      <ion-option *ngFor="let item of eventobj" [value]="item.EventsID">item.EventsTitle</ion-option>
+     
+    </ion-select>
+  </ion-item>
+</ion-content>

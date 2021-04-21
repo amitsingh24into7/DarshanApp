@@ -1,0 +1,33 @@
+<!--
+  Generated template for the YtStreamingListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Youtube Live Video</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+<ion-list>
+
+  <div *ngFor="let item of videolistObj">
+   
+  <ion-item  >
+    <!-- <button  ion-item > -->
+   <a target="_blank" [href]="'https://studio.youtube.com/video/'+item.yt_video_ID+'/livestreaming'">
+   <!-- <a [href]="item.yt_video_ID"></a> -->
+      <h2>{{item.yt_video_title}}</h2>
+      <p>{{item.yt_video_description}}</p>
+    </a>
+      <!-- <ion-note item-end><ion-icon name="ios-arrow-forward-outline"></ion-icon></ion-note> -->
+    <!-- </button> -->
+
+    
+  </ion-item>
+</div>
+</ion-list>
+</ion-content>

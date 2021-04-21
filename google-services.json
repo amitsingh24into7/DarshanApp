@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "945063541613",
+    "firebase_url": "https://w2w-webapp-d2dcf.firebaseio.com",
+    "project_id": "w2w-webapp-d2dcf",
+    "storage_bucket": "w2w-webapp-d2dcf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:945063541613:android:38c433159588866458b864",
+        "android_client_info": {
+          "package_name": "com.darshanapp.cname"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "945063541613-s0ds41ftttas4770abuptfauggi3ctgj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.darshanapp.cname",
+            "certificate_hash": "89ddbc9208bd74120847c03a80f67d77b2276612"
+          }
+        },
+        {
+          "client_id": "945063541613-stj6p1ht6f767js0bhmvmkl63v9s7l21.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJobQkRNy6kLWY7Fclp-xGSQ6eggWsiEo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "945063541613-stj6p1ht6f767js0bhmvmkl63v9s7l21.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

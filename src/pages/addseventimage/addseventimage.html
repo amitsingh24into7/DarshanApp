@@ -1,0 +1,96 @@
+<!--
+  Generated template for the AddtempleimgePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title style="text-align: center;">Event Image</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+
+    <ion-item>
+      <ion-label style="white-space: normal;">Do you want this event to appear in Banner?</ion-label>
+      <ion-checkbox  [(ngModel)]="cucumber" (ionChange)="updateCucumber($event)"></ion-checkbox>
+    </ion-item>
+ 
+  </ion-list>
+  <div style="min-height: 50%;float: left; width: 100%;">
+  <diV   *ngIf="base64Img12" class="square">
+    <label padding style="float: left; position: initial; width: 50%;" >
+      <ion-icon *ngIf="base64Img12" style="color : var(--color);font-size: 2.2em; float: right; position: relative; line-height: 0;" (click)="deletefunction(base64Img12,12)"  end name="md-close-circle"></ion-icon>
+      <img    class="imgaline" style="width: 100%; float: left; max-height: 106px;" [src]=base64Img12 class="square" >
+      
+
+    </label>  
+   
+    
+  </diV>
+
+  <ion-title class="labelclass" style="color:#424242;text-align: center;" *ngIf="base64Img12==''">Main Image  <label style="font-size: 10px;">( size should not be less than 1000*250 px)</label></ion-title>
+  <div  *ngIf="!this.isCordova()" class="square">
+    <button class="camera-circle" ion-button style="z-index:20;width: 29%;box-shadow: none; font-size: 25px; background-color:unset;" (click)="imageCapturedGallery(12)">
+      <ion-icon name="images" style="color: var(--color) !important"></ion-icon>
+    </button>
+    <button class="camera-circle" ion-button style="z-index:20;width: 29%;box-shadow: none; font-size: 25px; background-color: unset" (click)="imageCaptured('12')">
+      <ion-icon name="camera" style="color: var(--color) !important"></ion-icon>
+    </button>
+    <!-- <button class="camera-circle" ion-button icon-only style="width: 29%;box-shadow: none; font-size: 25px; background-color: unset;" (click)="clear(12)">
+      <ion-icon style="color: var(--color) !important" name="close"></ion-icon>
+    </button> -->
+  </div>
+  <div *ngIf="this.isCordova()" class="square">
+    <ion-input type="file"   accept="image/*" (change)="changeListener($event)"></ion-input>
+    
+  </div>
+  <!-- <div style="padding: 16px;" class="square">
+    <button (click)="doFormSubmit()" ion-button style="width: 100%;" class='buttoncolor' block>Submit</button>
+  </div> -->
+</div>
+
+<!-- ---------------below gallery block------------------------- -->
+
+<div  style="min-height: 50%;float: left; width: 100%;">
+    <diV class="square">
+      <label padding style="float: left; position: initial; width: 50%;" *ngFor="let base64img of base64Img13">
+        <ion-icon style="color : var(--color);font-size: 2.2em; float: right; position: relative; line-height: 0;" (click)="deletefunction(base64img,13)"  end name="md-close-circle"></ion-icon>
+        <img    class="imgaline" style="width: 100%; float: left; max-height: 106px;" [src]=base64img class="square"   *ngIf="base64img!=''">
+        
+
+      </label>
+      
+     
+      
+    </diV>
+    <ion-title class="labelclass" style="color:#424242;text-align: center;" *ngIf="base64Img13==''">Other</ion-title>
+    <div *ngIf="!this.isCordova()" class="square">
+      <button class="camera-circle" ion-button style="z-index:20;width: 29%; font-size: 25px; background-color: unset;box-shadow: none;" (click)="imageCapturedGallery(13)">
+        <ion-icon name="images" style="color:var(--color) !important"></ion-icon>
+      </button>
+      <button class="camera-circle" ion-button style="z-index:20;width: 29%; font-size: 25px; background-color:unset; box-shadow: none;" (click)="imageCaptured(13)">
+        <ion-icon name="camera" style="color:var(--color) !important"></ion-icon>
+      </button>
+
+      <!-- <button class="camera-circle" ion-button icon-only style="width: 29%; font-size: 25px; background-color: unset" (click)="clear(13)">
+        <ion-icon style="color:var(--color) !important" name="close"></ion-icon>
+      </button> -->
+    </div>
+    <div *ngIf="this.isCordova()" class="square">
+      <ion-input type="file"   accept="image/*" (change)="changeListenerother($event)"></ion-input>
+    </div>
+    <!-- <div style="padding: 16px;" class="square">
+      <button (click)="doFormSubmit()" ion-button style="width: 100%;" class='buttoncolor' block>Submit</button>
+    </div> -->
+
+</div>
+</ion-content>
+<ion-footer class="adminfooter" style="bottom: 56px;text-align: center;background-color: var(--color);font-weight: bold;font-size: 15px;">
+    
+  <ion-toolbar class="footertempdetail" (click)="doFormSubmit()">
+    Submit  
+  </ion-toolbar>
+  </ion-footer>

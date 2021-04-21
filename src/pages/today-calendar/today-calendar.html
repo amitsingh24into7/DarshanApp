@@ -1,0 +1,36 @@
+<!--
+  Generated template for the TodayCalendarPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Today's calendar</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+  
+  <ion-list  *ngFor="let calList of calobj" >
+    <ion-card  padding>
+    <ion-list  >
+      <label style="padding: 0px;"><strong>{{calList.fieldname}}</strong></label>
+     
+        <p>{{calList.valuename}} </p>
+    </ion-list>
+  </ion-card>
+  
+  </ion-list>
+    <!-- <ion-card padding  *ngFor="let calList of calobj" style="margin: 5px;">
+    <ion-list>
+      <ion-label  style="margin: 0px;font-size: 11px;">
+      <label style="padding: 0px;"><strong>{{calList.fieldname}}</strong></label>
+       
+          <p style="font-size: 11px;">{{calList.valuename}} </p>
+        </ion-label>
+    </ion-list>
+  
+  </ion-card> -->
+  
+</ion-content>

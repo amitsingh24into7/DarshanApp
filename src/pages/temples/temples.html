@@ -1,0 +1,140 @@
+<ion-header>
+
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+          <!-- <ion-title>Temples</ion-title> -->
+          <!-- <ion-buttons end> 
+          <ion-label>{{geoAddress }}</ion-label>
+          </ion-buttons> -->
+            <!-- (ionInput)="onInput($event)" -->
+            <!-- <ion-buttons (click)="backEvent()" class="headerback"> 
+              <button ion-button icon-only >
+                <ion-icon name="arrow-back"></ion-icon>
+              </button>
+            </ion-buttons> -->
+            <!-- <ion-title (click)="opnesearchmodel()"> /// this is use for categeory list serch
+              <ion-searchbar disabled=true  [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel"
+        
+              (ionCancel)="onCancel($event)"></ion-searchbar>
+            </ion-title> -->
+            <!-- *ngIf="!account.singleTempleID" -->
+            <ion-title style="margin-left: 3px; margin-right: 4px;">
+              <!-- <ion-label>Filter</ion-label> -->
+            
+      <!-- <ion-label fixed>{{ 'Nakshatra' }}</ion-label> -->
+       
+        <ion-select [(ngModel)]="filter_f"  placeholder="Filter"  style="padding: 8px;max-width: 100% !important;border: 1px solid #f38f3a8f;"   >  
+      
+          <ion-option [value]="obj.ConfigVal"  *ngFor="let obj of respfilterobj" >{{obj.ConfigDisplayVal}}</ion-option>
+          <!-- <ion-option>Black Olives</ion-option>
+          <ion-option>Extra Cheese</ion-option>
+          <ion-option>Mushrooms</ion-option>
+          <ion-option>Pepperoni</ion-option>
+          <ion-option>Sausage</ion-option> -->
+         
+          </ion-select>
+            
+            </ion-title>
+            <ion-title  >
+              <ion-searchbar style="color: white;" (search)="searchByKeyword($event)" [(ngModel)]="searchInput" type="text" debounce="500" ></ion-searchbar>
+            </ion-title> 
+          
+            <!-- (ionInput)="searchTemple($event)" -->
+          <!-- <ion-buttons end> 
+            <button ion-button icon-only >
+              <ion-icon name="ios-notifications-outline"></ion-icon>
+              <label *ngIf="notiCount>0"   style="left: 15px;top: -4px;position: absolute;color: white;background: black;border-radius: 20px;min-width: 18px;">{{notiCount}}</label>
+            </button>
+          </ion-buttons> -->
+          <ion-buttons end> 
+            <button (click)="searchByKeyword($event)" ion-button icon-only >
+              <ion-icon name="ios-search"></ion-icon>
+            </button>
+          </ion-buttons>
+  
+        <!-- <ion-toolbar>
+             <ion-searchbar (ionInput)="getItems($event)" placeholder="{{ 'SEARCH_PLACEHOLDER'}}"></ion-searchbar>
+    
+        </ion-toolbar> -->
+      <!--<ion-buttons end>
+        <button ion-button icon-only (click)="addItem()">
+          <ion-icon name="add"></ion-icon>
+        </button>
+      </ion-buttons>-->
+    </ion-navbar>
+  
+  </ion-header>
+  
+  <ion-content>
+   
+    <!-- <ion-refresher *ngIf="!isItemAvailable" slot="fixed" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content
+        pullingIcon="arrow-dropdown"
+        pullingText="Pull to refresh"
+        refreshingSpinner="circles"
+        refreshingText="Refreshing...">
+      </ion-refresher-content>
+    </ion-refresher> -->
+    <!-- <ion-card style="padding-bottom: 10px;">
+      
+      <label (click)="opencategories()">
+        <ion-label style="padding: 10px 0px 0px 10px; font-size: 15px;">Category <ion-icon name="ios-arrow-down-outline"></ion-icon></ion-label>
+      </label>
+      <ion-list   *ngIf="account.searchobj" >
+        <label class="searchbox" *ngFor="let keword of account.searchobj">
+          <ion-label>{{keword}}</ion-label>
+        </label>
+      </ion-list>
+    </ion-card> -->
+   
+    <!-- <ion-slides pager="true" dir="{{dir}}" (ionSlideWillChange)="onSlideChangeStart($event)">
+      
+        <ion-slide>
+          <img style="width: 100%;" src="https://images.unsplash.com/photo-1567591414240-e9c1e59f3e06?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=375&q=80" />
+      </ion-slide>
+      <ion-slide>
+          <img style="width: 100%;"  src="https://images.unsplash.com/photo-1519396207177-9051cfacb289?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=667&q=80" />
+      </ion-slide>
+      <ion-slide>
+          <img style="width: 100%;"  src="https://images.unsplash.com/photo-1565195161077-f5c5f61f9ea2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1479&q=80" />
+      </ion-slide>
+    </ion-slides> -->
+    <!--  -->
+    <!-- <ion-list *ngIf="isItemAvailable" >
+      <ion-item  *ngFor="let item of searchobj">
+        <ion-label  (click)="openItem(item.TempleName)">{{ item.TempleName }}</ion-label></ion-item>
+  </ion-list> -->
+  <!-- *ngIf="!isItemAvailable" -->
+    <ion-list >
+        <!-- {{searchobjnew|json}} -->
+      <ion-card *ngFor="let item of searchobjnew">
+          
+        <button class="templeview" ion-item (click)="openModule(item)">
+        
+
+
+            <img   [src]="imagelocation+item.ImageURL" />
+            <h5 style="padding: 3px 0px 0px 10px">{{item.TempleName}}</h5>
+            <!-- <label class="reviewsblock" start><ion-icon name="star">&nbsp;&nbsp;4.1<p>&nbsp;&nbsp;(100 reviews)&nbsp;&nbsp;|&nbsp;&nbsp;50+ Booked</p></ion-icon></label> -->
+          <!-- <p style="margin-top:10px">{{item.ShortDesc}}</p>
+          <ion-note item-end *ngIf="item.note">{{item.note}}</ion-note> -->
+        </button>
+  
+        <!--<ion-item-options>
+          <button ion-button color="danger" (click)="deleteItem(item)">
+            {{ 'DELETE_BUTTON' | translate }}
+          </button>
+        </ion-item-options>-->
+      </ion-card>
+      
+    </ion-list>
+    
+    <!-- <ion-infinite-scroll *ngIf="!isItemAvailable" (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content
+        loadingSpinner="bubbles"
+        loadingText="Loading more data...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll> -->
+  </ion-content>

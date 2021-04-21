@@ -1,0 +1,33 @@
+page-addseventtime {
+    .ngx-datepicker-container[_ngcontent-c0] .ngx-datepicker-calendar-container[_ngcontent-c0] {
+        position: unset !important; 
+         width: 300px;
+         background:#ffffffe3;
+         -webkit-box-shadow: 0 1px 4px 0 rgba(0,0,0,.08);
+         box-shadow: 0 1px 4px 0 rgba(0,0,0,.08);
+         border: 1px solid #dfe3e9;
+         border-radius: 4px;
+     }
+     // .ngx-datepicker-container[_ngcontent-c0] {
+     //     position: relative;
+     //     height: 31px;
+     // }
+     .ngx-datepicker-container[_ngcontent-c0] .ngx-datepicker-input[_ngcontent-c0] {
+         padding: 6px 10px;
+         font-size: 14px;
+         width: 100%;
+         outline: 0;
+         border: 0px solid #dfe3e9;
+     }
+
+
+    .formlabelicon {
+        text-align: center;
+        line-height: 2;
+        margin-bottom: 0 !important;
+        font-size: 22px;
+        margin-top: 0px !important;
+        margin-right: 0px !important;
+        color:var(--color)
+}
+}

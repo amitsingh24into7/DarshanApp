@@ -1,0 +1,73 @@
+<!--
+  Generated template for the ReportEventDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{pgdetailitomobj.EventsTitle}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    
+  <img *ngIf="pgdetailitomobj.ImageURL==null && !pgdetailitomobj.ImageURL" style="height: 220px;" src="assets/imgs/blankimage.png" />
+
+  <img *ngIf="pgdetailitomobj.ImageURL!=null && pgdetailitomobj.ImageURL" style="height: 220px;" [src]="imagelocation+pgdetailitomobj.ImageURL" />
+  
+  <!-- <label style=" float: right; bottom: 42px; right: 15px; font-size: 26px; position: relative; " (click)="openimagegall('AddseventgalleryPage',pgdetailitomobj)"><ion-icon name="images"></ion-icon></label>
+    <div padding>      -->
+      
+     
+  
+      <h3>{{pgdetailitomobj.EventsTitle}}</h3>
+      <ion-item >
+        <ion-list style="float: left;" >
+          <ion-icon name="time"> </ion-icon>
+          <label>{{pgdetailitomobj.EventFromDate}} - {{pgdetailitomobj.EventToDate}}</label>
+          <p> <a target="_blank" [href]="pgdetailitomobj.photo_album_page_url">{{pgdetailitomobj.photo_album_page_name}}</a></p>
+          <p>  <a target="_blank"  [href]="pgdetailitomobj.video_album_page_url">{{pgdetailitomobj.video_album_page_name}}</a></p>
+        </ion-list>
+       
+      </ion-item>
+    <h6>{{pgdetailitomobj.EventsShortDesc}}</h6>
+    <!-- {{stservicetimeobj | json}} -->
+      <ion-item *ngFor="let timesnal of stservicetimeobj">
+        <ion-list style="float: left;" >
+          <ion-icon name="time"> </ion-icon>
+          <label>{{timesnal.Day}}</label>
+          <p> Time From {{timesnal.FromTime}} Time To {{timesnal.ToTime}} </p>
+        </ion-list>
+        <!-- <button  ion-button (click)="openmoduleforupdate('AddseventtimePage',timesnal)" style="background-color: var(--color); float: right;">
+          <ion-icon style="color:black" name="create"></ion-icon>
+        </button> -->
+      </ion-item>
+       
+          
+        <!--<ion-list>
+          <ion-icon name="contact"> </ion-icon> 
+          <label>{{pageinfoobj.contactperson}}</label>
+        </ion-list>
+        <ion-list>
+          <ion-icon name="call"></ion-icon>
+          <label>{{pageinfoobj.contactno}}</label>
+        </ion-list>
+        <ion-list>
+          <ion-icon name="at"> </ion-icon>
+          <label>{{pageinfoobj.contactemail}}</label>
+        </ion-list> -->
+        
+        <!-- <ion-list style="float: left;width: 100%;">
+          <ion-icon style="float: left; " name="ios-navigate-outline"> </ion-icon>
+          <label style="float: left;width: 85%;">{{templeaddress}}</label>
+          <label style="float: left;" end (click)="openModule('Addtemplelable2Page')"><ion-icon name="create"></ion-icon></label>
+        </ion-list> -->
+        <ion-list >
+          <p style="text-align: justify;">{{pgdetailitomobj.EventsLongDesc}}</p>
+         </ion-list>
+    
+  
+    
+        
+</ion-content>

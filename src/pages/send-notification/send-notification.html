@@ -1,0 +1,86 @@
+<!--
+  Generated template for the SendNotificationPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Send Notification</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+ 
+    <!-- <form   [formGroup]="notificationform" >
+    <ion-list no-padding>
+      <ion-item *ngFor="let entry of form">
+        <ion-label>Would like to Store  Announcement ?</ion-label>
+        <ion-checkbox (ionChange)="ischeckedevent($event)"  slot="end" [(ngModel)]="entry.isChecked" formControlName="isChecked"></ion-checkbox>
+      </ion-item>
+    </ion-list>
+
+    
+    <ion-item  no-padding>
+      <ion-avatar class="formlabelicon" item-start>
+        <ion-icon name="pint"></ion-icon>
+      </ion-avatar>
+     
+      <ion-input placeholder="Subject" type="text" required [(ngModel)]="account.subject" formControlName="subject"></ion-input>
+    </ion-item>
+    <label no-padding  class="errormessage" *ngIf="!notificationform.controls.subject.valid && (notificationform.controls.subject.dirty)"> Please enter subject  line.
+    </label> 
+   
+    <ion-item  no-padding>
+      <ion-avatar class="formlabelicon" item-start>
+        <ion-icon name="clipboard"></ion-icon>
+      </ion-avatar>
+      <ion-textarea placeholder="Long Message" rows="4" cols="20"  required [(ngModel)]="account.message" formControlName="message"></ion-textarea>
+    </ion-item>
+    <label no-padding  class="errormessage" *ngIf="!notificationform.controls.message.valid && (notificationform.controls.message.dirty)"> Please enter  message.
+    </label>
+    <br>
+    <div  style="min-height: 50%;float: left; width: 100%;">
+      <diV class="square">
+        <label padding style="float: left; position: initial; width: 50%;" *ngFor="let base64img of base64Img13">
+          <ion-icon style="color : var(--color);font-size: 2.2em; float: right; position: relative; line-height: 0; z-index: 1000; " (click)="deletefunction(base64img,13)"  end name="md-close-circle"></ion-icon>
+          <img    class="imgaline" style="width: 100%; float: left; max-height: 106px;" [src]=base64img class="square"   *ngIf="base64img!=''">
+          
+  
+        </label>
+        
+       
+        
+      </diV>
+      <ion-title class="labelclass" style="color:#424242;text-align: center;" *ngIf="base64Img13==''">Other</ion-title>
+      
+      <div  *ngIf="!this.isCordova()" class="square">
+        <button class="camera-circle" ion-button style="z-index:20;width: 29%; font-size: 25px; background-color: unset; box-shadow: unset;" (click)="imageCapturedGallery(13,$event)">
+          <ion-icon name="images" style="color:var(--color) !important"></ion-icon>
+        </button>
+        <button class="camera-circle" ion-button style="z-index:20;width: 29%; font-size: 25px; background-color:unset; box-shadow: unset;" (click)="imageCaptured(13)">
+          <ion-icon name="camera" style="color:var(--color) !important"></ion-icon>
+        </button>
+        
+      </div>
+
+      <div *ngIf="this.isCordova()" class="square">
+        <ion-input type="file"   accept="image/*" (change)="changeListenerother($event)"></ion-input>
+      </div>
+     
+  
+  </div>
+  
+</form> -->
+
+<iframe  sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin" target="_self" style="border:navajowhite;" width="100%" height="100%" [src]="pageUrl"></iframe>
+
+</ion-content>
+<!-- <ion-footer class="adminfooter" style="bottom: 56px;text-align: center;background-color: var(--color);font-weight: bold;font-size: 15px;/* color: white; */">
+  <ion-toolbar  (click)="doFormSubmit()">
+     
+        <ion-icon name="snow"></ion-icon>
+        Send Notification
+      
+  </ion-toolbar>
+</ion-footer> -->

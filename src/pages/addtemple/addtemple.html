@@ -1,0 +1,215 @@
+<!--
+  Generated template for the AddtemplePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title style="text-align: center;">Add Temple</ion-title>
+    <ion-buttons end> 
+      <button  [disabled]="!addtemplelfirst.valid" (click)="doFormSubmit('validVal')" ion-button icon-only >
+        Next <ion-icon name="ios-arrow-forward-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+   
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+
+  
+  <form  (submit)="doFormSubmit()" [formGroup]="addtemplelfirst">
+    <ion-list *ngIf="this.isupdate">
+      <ion-item>
+        <ion-label>Preferred language</ion-label>
+        <ion-select (ionChange)="getSelectedLang($event)" interface="popover" >
+          <!-- <ion-option *ngIf="def_lang.val=='English'" [value]="def_lang.val" [selected]="true"></ion-option> -->
+          <ion-option [selected]="lang.ConfigVal==def_lang.val ? 'true' : 'false' " *ngFor="let lang of languageobj" [value]="lang.ConfigVal">{{lang.ConfigDisplayVal}}</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    <!-- <ion-item>
+        <ion-label color="ligh-grey" floating>Full Name</ion-label>
+        <ion-input type="text" formControlName="userName"></ion-input>
+    </ion-item> -->
+    <ion-item no-padding>
+      <ion-avatar class="formlabelicon" item-start>
+        <ion-icon name="home"></ion-icon>
+      </ion-avatar>
+      <ion-input placeholder="Temple Name" type="text" [(ngModel)]="account.TempleName" formControlName="TempleName" ></ion-input>
+    </ion-item>
+   
+    <label no-padding  class="errormessage" *ngIf="!addtemplelfirst .controls.TempleName.valid && (addtemplelfirst .controls.TempleName.dirty)"> Please enter a Temple Name.
+    </label> 
+    <ion-item no-padding>
+      <ion-avatar class="formlabelicon" item-start>
+        <ion-icon name="paper"></ion-icon>
+      </ion-avatar>
+      <ion-input placeholder="Short Desc" type="text" required [(ngModel)]="account.ShortDesc" formControlName="ShortDesc"></ion-input>
+    </ion-item>
+    <label no-padding  class="errormessage" *ngIf="!addtemplelfirst .controls.ShortDesc.valid && (addtemplelfirst .controls.ShortDesc.dirty)"> Please enter  Short Desc.
+    </label> 
+    <!-- <ion-item>
+      <ion-label fixed>Long Desc</ion-label>
+      <ion-input type="text" required [(ngModel)]="account.LongDesc" name="LongDesc"></ion-input>
+    </ion-item> -->
+   
+    <!-- Textarea in an item with a floating label -->
+    <ion-item *ngIf="!iscore" no-padding>
+      <ion-avatar class="formlabelicon" item-start>
+        <ion-icon name="clipboard"></ion-icon>
+      </ion-avatar>
+      <!-- <ion-label position="floating">Long Description</ion-label> -->
+      <ion-textarea placeholder="Long Description" rows="4" cols="20"  required [(ngModel)]="account.LongDesc" formControlName="LongDesc"></ion-textarea>
+    
+    </ion-item>
+    <!-- <rich-text [formControlItem]="item_test"    placeholderText="Long Description">{{account.LongDesc}}</rich-text> -->
+    
+    <!-- {{item_test|json}}
+    {{account.LongDesc}} -->
+    <ion-input  *ngIf="iscore" type="hidden" [(ngModel)]="account.LongDesc" formControlName="LongDesc" ></ion-input>
+    <div *ngIf="iscore" id="editor-container">
+    </div>
+    <!-- <label no-padding  class="errormessage" *ngIf="!addtemplelfirst .controls.LongDesc.valid && (addtemplelfirst .controls.LongDesc.dirty)"> Please enter  Long Desc.
+    </label> -->
+    
+      <!-- Textarea in an item with a floating label -->
+      <ion-item no-padding>
+        <ion-avatar class="formlabelicon" item-start>
+          <ion-icon name="ios-pricetag"></ion-icon>
+        </ion-avatar>
+        <!-- <ion-label position="floating">Long Description</ion-label> -->
+        <ion-textarea placeholder="Temple Tagline(Flex1)" rows="4" cols="20"   [(ngModel)]="account.flag1" formControlName="flag1"></ion-textarea>
+      </ion-item>
+      <label no-padding  class="errormessage" *ngIf="!addtemplelfirst .controls.flag1.valid && (addtemplelfirst .controls.flag1.dirty)"> Please enter  temple tagline.
+      </label>
+      <ion-item no-padding>
+        <ion-avatar class="formlabelicon" item-start>
+          <ion-icon name="ios-pricetag"></ion-icon>
+        </ion-avatar>
+        <!-- <ion-label position="floating">Long Description</ion-label> -->
+        <ion-textarea placeholder="Temple Tagline(Flex2)" rows="4" cols="20"   [(ngModel)]="account.flag2" formControlName="flag2"></ion-textarea>
+      </ion-item>
+      <label no-padding  class="errormessage" *ngIf="!addtemplelfirst .controls.flag2.valid && (addtemplelfirst .controls.flag2.dirty)"> Please enter  temple tagline.
+      </label>
+    
+    
+    <ion-item no-padding>
+      <ion-avatar class="formlabelicon" item-start>
+        <ion-icon name="person"></ion-icon>
+      </ion-avatar>
+      <!-- <ion-label >Contact Person</ion-label> -->
+      <ion-input placeholder="Contact Person" type="text" required [(ngModel)]="account.contactperson" formControlName="contactperson"></ion-input>
+    </ion-item>
+    <label no-padding  class="errormessage" *ngIf="!addtemplelfirst .controls.contactperson.valid && (addtemplelfirst .controls.contactperson.dirty)"> Please enter Contact Person.
+    </label> 
+    <ion-item no-padding>
+      <ion-avatar class="formlabelicon" item-start>
+        <ion-icon name="call"></ion-icon>
+      </ion-avatar>
+      <!-- <ion-label fixed>Contactno</ion-label> -->
+      <ion-input minlangth="10" maxlength="10" placeholder="Contactno" type="number" required [(ngModel)]="account.contactno" formControlName="contactno"></ion-input>
+    </ion-item>
+    <label no-padding  class="errormessage" *ngIf="!addtemplelfirst .controls.contactno.valid && (addtemplelfirst .controls.contactno.dirty)"> Please enter valid mobile number .
+    </label> 
+    <ion-item no-padding>
+      <ion-avatar class="formlabelicon" item-start>
+        <ion-icon name="ios-mail-outline"></ion-icon>
+      </ion-avatar>
+      <!-- <ion-label fixed>Contact Email</ion-label> -->
+      <ion-input placeholder="Contact Email" type="email" required [(ngModel)]="account.contactemail" formControlName="contactemail"></ion-input>
+    </ion-item>
+    <label no-padding  class="errormessage" *ngIf="!addtemplelfirst .controls.contactemail.valid && (addtemplelfirst .controls.contactemail.dirty)"> Please enter valid Email .
+    </label> 
+    <ion-item no-padding>
+      <ion-avatar class="formlabelicon" item-start>
+        <ion-icon name="logo-youtube"></ion-icon>
+      </ion-avatar>
+     
+      <ion-input placeholder="youtube challenge link" type="text"  [(ngModel)]="account.youtube_channel_id" formControlName="youtube_channel_id"></ion-input>
+    </ion-item>
+    <ion-item no-padding>
+      <ion-avatar class="formlabelicon" item-start>
+        <ion-icon name="logo-facebook"></ion-icon>
+      </ion-avatar>
+     
+      <ion-input placeholder="facebook  client IDk" type="text"  [(ngModel)]="account.facebook_clientID" formControlName="facebook_clientID"></ion-input>
+    </ion-item>
+
+    <ion-item no-padding>
+      <ion-avatar class="formlabelicon" item-start>
+        <ion-icon name="md-sync"></ion-icon>
+      </ion-avatar>
+      
+      <ion-input placeholder="paypal clientID" type="text"  [(ngModel)]="account.paypal_clientID" formControlName="paypal_clientID"></ion-input>
+    </ion-item>
+
+    <!-- <ion-item no-padding>
+      <ion-avatar class="formlabelicon" item-start>
+        <ion-icon name="ios-clock-outline"></ion-icon>
+      </ion-avatar>
+     
+      <ion-input placeholder="Avalibility" type="text" [(ngModel)]="account.TempleAvalibility" formControlName="TempleAvalibility"></ion-input>
+      </ion-item>
+      <label no-padding  class="errormessage" *ngIf="!addtemplelfirst .controls.TempleAvalibility.valid && (addtemplelfirst .controls.TempleAvalibility.dirty)"> Please enter Avalibility .
+      </label>  -->
+      <!-- <ion-item style="width: 70%;float: left; "> 
+        <ion-label>Mon, Morning  From</ion-label>
+        <ion-datetime style="font-size: 10px;" displayFormat="h:mm A" minuteValues="0,15,30,45"></ion-datetime>
+      </ion-item>
+
+      <ion-item style="width: 30%;float: left; " no-padding> 
+          <ion-label> To</ion-label>
+          <ion-datetime style="font-size: 10px;" displayFormat="h:mm A" minuteValues="0,15,30,45"></ion-datetime>
+      </ion-item>
+      <ion-item style="width: 70%;float: left; "> 
+        <ion-label>Mon, Evning  From</ion-label>
+        <ion-datetime style="font-size: 10px;" displayFormat="h:mm A" minuteValues="0,15,30,45"></ion-datetime>
+      </ion-item>
+
+      <ion-item style="width: 30%;float: left; " no-padding> 
+          <ion-label> To</ion-label>
+          <ion-datetime style="font-size: 10px;" displayFormat="h:mm A" minuteValues="0,15,30,45"></ion-datetime>
+      </ion-item> -->
+
+
+
+    <ion-item no-padding>
+      <ion-avatar class="formlabelicon" item-start>
+        <ion-icon name="musical-note"></ion-icon>
+      </ion-avatar>
+      <!-- <ion-label fixed>Avalibility</ion-label> -->
+      <ion-input (click)="alertmethod()" placeholder="Puja prefer in  language" type="text" [(ngModel)]="account.prefer_language" formControlName="prefer_language" readonly></ion-input>
+    </ion-item>
+
+    <label no-padding  class="errormessage" *ngIf="!addtemplelfirst .controls.prefer_language.valid && (addtemplelfirst .controls.prefer_language.dirty)"> Please select  the Puja prefer in  language .
+    </label> 
+    
+
+    <!-- <ion-item>
+      <ion-label fixed>{{ 'PASSWORD' | translate }}</ion-label>
+      <ion-input type="password" [(ngModel)]="account.password" name="password"></ion-input>
+    </ion-item> -->
+
+    <!-- <div padding>
+      <button ion-button class='buttoncolor' block>Next</button>
+    </div> -->
+   
+    <!-- We can check if our form is valid: -->
+    <!-- {{addtemplelfirst.valid | json }}
+    <ion-buttons padding-top>
+        <button ion-button full round type="submit" [disabled]="!addtemplelfirst.valid" (click)="regForm()">SIGNUP</button>
+    </ion-buttons> -->
+
+   
+    
+   
+    <!-- <rich-text [formControlItem]="item_test" placeholderText="A sample of placeholder text"></rich-text>
+-->
+    
+</form>
+
+
+</ion-content>

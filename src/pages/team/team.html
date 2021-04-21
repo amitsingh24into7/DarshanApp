@@ -1,0 +1,25 @@
+<!--
+  Generated template for the TeamPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Teams</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  
+<ion-card *ngFor="let team of teamObj">
+  <img *ngIf="team.picture" [src]="imagelocation+'darshanapp/'+team.picture">
+  <img *ngIf="!team.picture" src="assets/img/photo.jpg">
+  
+  <h5 style="padding-left:5px;" ><b>Name: </b>{{team.name}}</h5>
+  <p style="padding-left:5px;"><b>Email: </b>{{team.Email}}</p>
+  <p style="padding-left:5px;"><b>Phone: </b>{{team.Phone}}</p>
+  <p style="padding-left:5px;"><b>Role: </b>{{team.Role}}</p>
+
+</ion-card>
+</ion-content>

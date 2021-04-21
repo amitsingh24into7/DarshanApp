@@ -1,0 +1,138 @@
+<!--
+  Generated template for the AddseventdetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Event Details</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+    
+<img *ngIf="pgdetailitomobj.ImageURL==null && !pgdetailitomobj.ImageURL" style="height: 220px;" src="assets/imgs/blankimage.png" />
+
+<img *ngIf="pgdetailitomobj.ImageURL!=null && pgdetailitomobj.ImageURL" style="height: 220px;" [src]="imagelocation+pgdetailitomobj.ImageURL" />
+
+<label style=" float: right; bottom: 42px; right: 15px; font-size: 26px; position: relative; " (click)="openimagegall('AddseventgalleryPage',pgdetailitomobj)"><ion-icon name="images"></ion-icon></label>
+  <div padding>     
+    <ion-list >
+      <ion-item>
+        <ion-label>Preferred language</ion-label>
+        <ion-select (ionChange)="getSelectedLang($event)" interface="popover" >
+          <!-- <ion-option *ngIf="def_lang.val=='English'" [value]="def_lang.val" [selected]="true"></ion-option> -->
+          <ion-option [selected]="lang.ConfigVal==def_lang.val ? 'true' : 'false' " *ngFor="let lang of languageobj" [value]="lang.ConfigVal">{{lang.ConfigDisplayVal}}</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list> 
+   
+
+    <h3>{{pgdetailitomobj.EventsTitle}}</h3>
+    <ion-item >
+      <ion-list style="float: left;" >
+        <ion-icon name="time"> </ion-icon>
+        <label>{{pgdetailitomobj.EventFromDate}} - {{pgdetailitomobj.EventToDate}}</label>
+        <p> <a target="_blank" [href]="pgdetailitomobj.photo_album_page_url">{{pgdetailitomobj.photo_album_page_name}}</a></p>
+        <p>  <a target="_blank"  [href]="pgdetailitomobj.video_album_page_url">{{pgdetailitomobj.video_album_page_name}}</a></p>
+      </ion-list>
+     
+    </ion-item>
+
+      
+
+  <h6>{{pgdetailitomobj.EventsShortDesc}}</h6>
+  <!-- {{stservicetimeobj | json}} -->
+    <ion-item *ngFor="let timesnal of stservicetimeobj">
+      <ion-list style="float: left;" >
+        <ion-icon name="time"> </ion-icon>
+        <label>{{timesnal.Day}}</label>
+        <p> Time From {{timesnal.FromTime}} Time To {{timesnal.ToTime}} </p>
+      </ion-list>
+      <button  ion-button (click)="openmoduleforupdate('AddseventtimePage',timesnal)" style="background-color: var(--color); float: right;">
+        <ion-icon style="color:black" name="create"></ion-icon>
+      </button>
+      <button  ion-button (click)="deletetime(timesnal)" style="background-color: var(--color); float: right;">
+        <ion-icon style="color:black" name="trash"></ion-icon>
+      </button>
+    </ion-item>
+     
+        
+      <!--<ion-list>
+        <ion-icon name="contact"> </ion-icon> 
+        <label>{{pageinfoobj.contactperson}}</label>
+      </ion-list>
+      <ion-list>
+        <ion-icon name="call"></ion-icon>
+        <label>{{pageinfoobj.contactno}}</label>
+      </ion-list>
+      <ion-list>
+        <ion-icon name="at"> </ion-icon>
+        <label>{{pageinfoobj.contactemail}}</label>
+      </ion-list> -->
+      
+      <!-- <ion-list style="float: left;width: 100%;">
+        <ion-icon style="float: left; " name="ios-navigate-outline"> </ion-icon>
+        <label style="float: left;width: 85%;">{{templeaddress}}</label>
+        <label style="float: left;" end (click)="openModule('Addtemplelable2Page')"><ion-icon name="create"></ion-icon></label>
+      </ion-list> -->
+        <!-- pay_url -->
+        <ion-item  *ngFor="let item of payment_url">
+          <ion-list style="float: left;" >
+            
+            <label>{{item.title}} </label>
+            <p><ion-icon name="link"> </ion-icon> <a target="_blank" [href]="item.payment_url">{{item.payment_url}}</a></p>
+            <p><ion-icon ios="ios-cash" md="md-cash"></ion-icon> &nbsp;{{item.amount}}</p>
+            <p>{{item.payment_desc}}</p>
+            <p>{{item.remarks}}</p>
+            
+          </ion-list>
+          <button  ion-button (click)="openmoduleforupdate('AddPaymentUrlPage',item)" style="background-color: var(--color); float: right;">
+            <ion-icon style="color:black" name="create"></ion-icon>
+          </button>
+          <button  ion-button (click)="deletetimeurl(item)" style="background-color: var(--color); float: right;">
+            <ion-icon style="color:black" name="trash"></ion-icon>
+          </button>
+        </ion-item>
+<!-- ------------- -->
+      <ion-list >
+        <p style="text-align: justify;">{{pgdetailitomobj.EventsLongDesc}}</p>
+       </ion-list>
+  
+  </div>
+  
+      
+  </ion-content>
+  <ion-footer class="adminfooter" style="bottom: 56px;text-align: center;background-color: var(--color);font-weight: bold;font-size: 15px;">
+    
+
+  <ion-toolbar style="width: 33%;float: left; "  class="footertempdetail" (click)="openmoduleforaddmoretime('EventAdminsponsorshiplistPage',pgdetailitomobj)">
+     
+    <ion-icon name="ios-hand"></ion-icon>
+    Sponsorship
+   
+  </ion-toolbar>
+  <ion-toolbar style="width: 33%;float: left; " class="footertempdetail" (click)="openmoduleforaddmoretime('AddseventtimePage',pgdetailitomobj)">
+     
+    <ion-icon name="clock"></ion-icon>
+    Event Time   
+  </ion-toolbar>
+  <!-- <ion-toolbar style="width: 34%;float: left; " class="footertempdetail" (click)="openmoduleforaddmoretime('AddPaymentUrlPage',pgdetailitomobj)">
+     
+    <ion-icon ios="ios-link" md="md-link"></ion-icon>
+    Add Donation URL   
+  </ion-toolbar> -->
+  <!-- <ion-toolbar *ngIf="pgdetailitomobj.active!=1" class="footertempdetail" (click)="publishtemple('pgdetailitomobj','Publish')">
+   
+    <ion-icon name="md-paper-plane"></ion-icon>
+    Publish
+  </ion-toolbar>
+  <ion-toolbar *ngIf="pgdetailitomobj.active==1" class="footertempdetail" (click)="publishtemple('pgdetailitomobj','Unpublish')">
+     
+    <ion-icon name="ios-paper-plane"></ion-icon>
+    Unpublish   
+  </ion-toolbar> -->
+  
+  
+  </ion-footer>

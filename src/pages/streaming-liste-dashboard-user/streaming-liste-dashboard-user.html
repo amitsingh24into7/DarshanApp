@@ -1,0 +1,27 @@
+<!--
+  Generated template for the StreamingListeDashboardUserPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Live Darshan</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list class="settinglist">
+    <button  (click)="openmodalpage('YtStreamingListeUserPage')" ion-item >
+        <label> <div><ion-icon class="iconclass" name="logo-youtube"></ion-icon> <p class="labelfont">Youtube <br> Live</p></div> </label>
+        </button>
+   </ion-list>
+   <ion-list class="settinglist">
+    <button (click)="openmodalpage('ScheduledStreaminListPage')"   ion-item >
+        <label> <div><ion-icon class="iconclass" name="logo-facebook"></ion-icon>
+          <!-- <ion-icon class="iconclass" name="ios-bookmark-outline"></ion-icon> -->
+          <p class="labelfont">Facebook <br> Live</p></div> </label>
+           
+        </button>
+   </ion-list>
+</ion-content>

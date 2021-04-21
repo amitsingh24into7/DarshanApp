@@ -1,0 +1,162 @@
+<!--
+  Generated template for the AddseventPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Add Event</ion-title>
+    <ion-buttons    end> 
+      <button [disabled]="!addtemplelfirst.valid"  (click)="doFormSubmit()"  ion-button icon-only >
+        Next <ion-icon name="ios-arrow-forward-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <!-- <ion-calendar #calendar></ion-calendar> -->
+  
+  <!-- <input [owlDateTimeTrigger]="dt3" [owlDateTime]="dt3">
+    <owl-date-time [pickerType]="'calendar'" #dt3></owl-date-time> -->
+  <!-- <ionic-calendar-date-picker (onSelect)="dateSelected($event)"></ionic-calendar-date-picker> -->
+  <ion-content padding>
+    <form (submit)="doFormSubmit()"  [formGroup]="addtemplelfirst" >
+      <ion-list *ngIf="this.isupdate">
+        <ion-item>
+          <ion-label>Preferred language</ion-label>
+          <ion-select (ionChange)="getSelectedLang($event)" interface="popover" >
+            <!-- <ion-option *ngIf="def_lang.val=='English'" [value]="def_lang.val" [selected]="true"></ion-option> -->
+            <ion-option [selected]="lang.ConfigVal==def_lang.val ? 'true' : 'false' " *ngFor="let lang of languageobj" [value]="lang.ConfigVal">{{lang.ConfigDisplayVal}}</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+      <ion-item  no-padding>
+        <ion-avatar class="formlabelicon" item-start>
+          <ion-icon name="pint"></ion-icon>
+        </ion-avatar>
+       
+        <ion-input placeholder="Event  Title" type="text" required [(ngModel)]="account.EventsTitle" formControlName="EventsTitle"></ion-input>
+      </ion-item>
+      <label no-padding  class="errormessage" *ngIf="!addtemplelfirst .controls.EventsTitle.valid && (addtemplelfirst .controls.EventsTitle.dirty)"> Please enter a Event  Title.
+      </label> 
+       <ion-item no-padding>
+        <ion-avatar class="formlabelicon" item-start>
+          <ion-icon name="paper"></ion-icon>
+        </ion-avatar>
+        <ion-input placeholder="Short Desc" type="text" required [(ngModel)]="account.EventsShortDesc" formControlName="EventsShortDesc"></ion-input>
+      </ion-item>
+      <label no-padding  class="errormessage" *ngIf="!addtemplelfirst .controls.EventsShortDesc.valid && (addtemplelfirst .controls.EventsShortDesc.dirty)"> Please enter Short Desc.
+      </label> 
+      <ion-item no-padding>
+        <ion-avatar class="formlabelicon" item-start>
+          <ion-icon name="outlet"></ion-icon>
+        </ion-avatar>
+        
+        <ion-select style="max-width: 100% !important;" placeholder="Select Event Type" [(ngModel)]="account.EventsType" formControlName="EventsType">
+          <ion-option *ngFor="let list of templeserviceListobj" value="{{list.ID}}">{{list.ConfigDisplayVal}}</ion-option>
+          
+        </ion-select>
+      </ion-item>
+      <label no-padding  class="errormessage" *ngIf="!addtemplelfirst .controls.EventsType.valid && (addtemplelfirst .controls.EventsType.dirty)"> Please select one.
+      </label>
+      
+      <ion-item  no-padding >
+        <ion-avatar class="formlabelicon" item-start>
+          <ion-icon name="outlet"></ion-icon>
+        </ion-avatar>
+        
+        
+        <ion-select style="max-width: 100% !important;" placeholder="Is Volunteering" [(ngModel)]="account.isvolunteering" formControlName="isvolunteering">
+          <ion-option [selected]="account.isvolunteering=='Yes'"  value="Yes">Yes</ion-option>
+          <ion-option [selected]="account.isvolunteering=='No' "  value="No">No</ion-option>
+          
+        </ion-select>
+        
+      </ion-item>
+      <ion-item  no-padding >
+        <ion-avatar class="formlabelicon" item-start>
+          <ion-icon name="outlet"></ion-icon>
+        </ion-avatar>
+        
+        
+        <ion-select style="max-width: 100% !important;" placeholder="Is Donation" [(ngModel)]="account.isDonation" formControlName="isDonation">
+          <ion-option [selected]="account.isDonation=='Yes'"  value="Yes">Yes</ion-option>
+          <ion-option [selected]="account.isDonation=='No' "  value="No">No</ion-option>
+          
+        </ion-select>
+        
+      </ion-item>
+      <ion-item no-padding>
+      
+        <ion-avatar class="formlabelicon" item-start>
+          <ion-icon name="alarm"></ion-icon>
+        </ion-avatar>
+        <!-- <ion-datetime   placeholder="Event From date(MM/DD/YYYY)" displayFormat="MM/DD/YYYY" min="2020-01-18" > </ion-datetime> -->
+        <ng-datepicker placeholder="'placeholder'"  [(ngModel)]="account.F_EventsDate" formControlName="F_EventsDate" [options]="calendarOptions"  ></ng-datepicker>
+        
+  </ion-item>
+  <ion-item no-padding>
+      
+    <ion-avatar class="formlabelicon" item-start>
+      <ion-icon name="alarm"></ion-icon>
+    </ion-avatar>
+    <ng-datepicker [(ngModel)]="account.t_EventsDate" formControlName="t_EventsDate" [options]="c_options" ></ng-datepicker>
+    <!-- <ion-datetime  [(ngModel)]="account.t_EventsDate" formControlName="t_EventsDate"  placeholder="Event To date(MM/DD/YYYY)" displayFormat="MM/DD/YYYY" min="2020-01-18" > </ion-datetime> -->
+   
+</ion-item>
+<!-- ------------- Start Photo alubum name block------------------ -->
+<ion-item no-padding>
+  <ion-avatar class="formlabelicon" item-start>
+    <ion-icon name="image"></ion-icon>
+  </ion-avatar>
+  <ion-input placeholder="Photo alubum name" type="text"  [(ngModel)]="account.Photoalubumname" formControlName="Photoalubumname"></ion-input>
+</ion-item>
+<!-- <label no-padding  class="errormessage" *ngIf="!addtemplelfirst .controls.Photoalubumname.valid && (addtemplelfirst .controls.Photoalubumname.dirty)"> Please enter photo alubum name.
+</label> -->
+<!-- ------------- End Photo alubum name block------------------ -->
+<!-- ------------- Start  Photo alubum url block------------------ -->
+<ion-item no-padding>
+  <ion-avatar class="formlabelicon" item-start>
+    <ion-icon name="ios-image-outline"></ion-icon>
+  </ion-avatar>
+  <ion-input placeholder="Photo alubum url" type="text"  [(ngModel)]="account.PhotoAlbumURL" formControlName="PhotoAlbumURL"></ion-input>
+</ion-item>
+<!-- <label no-padding  class="errormessage" *ngIf="!addtemplelfirst .controls.PhotoAlbumURL.valid && (addtemplelfirst .controls.PhotoAlbumURL.dirty)"> Please enter photo alubum url.
+</label> -->
+<!-- ------------- End Photo alubum url block------------------ -->
+
+<!-- ------------- Start Photo alubum name block------------------ -->
+<ion-item no-padding>
+  <ion-avatar class="formlabelicon" item-start>
+    <ion-icon name="videocam"></ion-icon>
+  </ion-avatar>
+  <ion-input placeholder="Video alubum name" type="text"  [(ngModel)]="account.Videoalubumname" formControlName="Videoalubumname"></ion-input>
+</ion-item>
+<!-- <label no-padding  class="errormessage" *ngIf="!addtemplelfirst .controls.Videoalubumname.valid && (addtemplelfirst .controls.Videoalubumname.dirty)"> Please enter video alubum name.
+</label> -->
+<!-- ------------- End Photo alubum name block------------------ -->
+
+<!-- ------------- Start Photo alubum url block------------------ -->
+
+<ion-item no-padding>
+  <ion-avatar class="formlabelicon" item-start>
+    <ion-icon name="ios-videocam-outline"></ion-icon>
+  </ion-avatar>
+  <ion-input placeholder="Video alubum url" type="text"  [(ngModel)]="account.VideoAlbumURL" formControlName="VideoAlbumURL"></ion-input>
+</ion-item>
+<!-- <label no-padding  class="errormessage" *ngIf="!addtemplelfirst .controls.VideoAlbumURL.valid && (addtemplelfirst .controls.VideoAlbumURL.dirty)"> Please enter video alubum url.
+</label> -->
+    
+      <ion-item  no-padding>
+        <ion-avatar class="formlabelicon" item-start>
+          <ion-icon name="clipboard"></ion-icon>
+        </ion-avatar>
+        <ion-textarea placeholder="Long Description" rows="4" cols="20"   [(ngModel)]="account.EventsLongDesc" formControlName="EventsLongDesc"></ion-textarea>
+      </ion-item>
+      <!-- <label no-padding  class="errormessage" *ngIf="!addtemplelfirst .controls.EventsLongDesc.valid && (addtemplelfirst .controls.EventsLongDesc.dirty)"> Please enter Long Description.
+      </label> -->
+  </form>
+  
+  </ion-content>

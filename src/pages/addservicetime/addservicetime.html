@@ -1,0 +1,232 @@
+<!--
+  Generated template for the AddservicetimePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Service Time</ion-title>
+    <!-- <ion-buttons    end> 
+      <button  (click)="doFormSubmit()"  ion-button icon-only >
+        Next <ion-icon name="ios-arrow-forward-outline"></ion-icon>
+      </button>
+    </ion-buttons> -->
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  
+  <form  (submit)="doFormSubmitForsave()" [formGroup]="addtempleServicetime" >
+   
+   
+  
+    <ion-item no-padding>
+      
+      <ion-avatar class="formlabelicon" item-start>
+        <ion-icon name="alarm"></ion-icon>
+      </ion-avatar>
+      <ion-select [(ngModel)]="accountlabelobj.Day"  style="max-width: 100% !important;"  formControlName="Day"  placeholder="Day name">  
+       <ion-option *ngFor="let day of dayNameObj " value="{{day.ConfigVal}}">{{day.ConfigDisplayVal}}</ion-option>
+      <!--<ion-option value="Tuesday">Tuesday</ion-option>
+      <ion-option value="Wednesday">Wednesday</ion-option>
+      <ion-option value="Thursday">Thursday</ion-option>
+      <ion-option value="Friday">Friday</ion-option>
+      <ion-option value="Saturday">Saturday</ion-option>
+      <ion-option value="Sunday">Sunday</ion-option> -->
+      </ion-select>
+    </ion-item>
+    <label no-padding  class="errormessage" *ngIf="!addtempleServicetime .controls.Day.valid && (addtempleServicetime .controls.Day.dirty)"> Please select one.    </label> 
+    <ion-item no-padding>
+      <!-- <ion-label>Form time</ion-label> -->
+      <ion-avatar class="formlabelicon" item-start>
+        <ion-icon name="clock"></ion-icon>
+      </ion-avatar>
+      <ion-datetime  [(ngModel)]="accountlabelobj.FromTime" formControlName="FromTime"  placeholder="Form time" displayFormat="h:mm A" minuteValues="0,15,30,45"></ion-datetime>
+    </ion-item>
+    <label no-padding  class="errormessage" *ngIf="!addtempleServicetime .controls.FromTime.valid && (addtempleServicetime .controls.FromTime.dirty)">  Please select one. </label>
+    <ion-item no-padding>
+      <!-- <ion-label>To time</ion-label> -->
+      <ion-avatar class="formlabelicon" item-start>
+        <ion-icon name="clock"></ion-icon>
+      </ion-avatar>
+      <ion-datetime  [(ngModel)]="accountlabelobj.ToTime" formControlName="ToTime"  placeholder="To time" displayFormat="h:mm A" minuteValues="0,15,30,45"></ion-datetime>
+    </ion-item>
+    <label no-padding  class="errormessage" *ngIf="!addtempleServicetime .controls.ToTime.valid && (addtempleServicetime .controls.ToTime.dirty)">  Please select one. </label>
+    <ion-item no-padding>
+      <ion-avatar class="formlabelicon" item-start>
+        <ion-icon name="ios-aperture-outline"></ion-icon>
+      </ion-avatar>
+
+      
+      <!-- // [(ngModel)]="account.isonlineser" -->
+      <ion-select  [(ngModel)]="accountlabelobj.timzone" style="max-width: 100% !important;" required formControlName="timzone"  placeholder="Timezone">       
+        <ion-option value="Pacific/Midway">(UTC-11:00) Midway Island</ion-option>
+    <ion-option value="Pacific/Samoa">(UTC-11:00) Samoa</ion-option>
+    <ion-option value="Pacific/Honolulu">(UTC-10:00) Hawaii</ion-option>
+    <ion-option value="US/Alaska">(UTC-09:00) Alaska</ion-option>
+  <ion-option value="America/Los_Angeles">(UTC-08:00) Pacific Time (US &amp; Canada)</ion-option>
+    <ion-option value="America/Tijuana">(UTC-08:00) Tijuana</ion-option>
+    <ion-option value="US/Arizona">(UTC-07:00) Arizona</ion-option>
+    <ion-option value="America/Chihuahua">(UTC-07:00) Chihuahua</ion-option>
+    <ion-option value="America/Chihuahua">(UTC-07:00) La Paz</ion-option>
+    <ion-option value="America/Mazatlan">(UTC-07:00) Mazatlan</ion-option>
+    <ion-option value="US/Mountain">(UTC-07:00) Mountain Time (US &amp; Canada)</ion-option>
+    <ion-option value="America/Managua">(UTC-06:00) Central America</ion-option>
+    <ion-option value="US/Central">(UTC-06:00) Central Time (US &amp; Canada)</ion-option>
+    <ion-option value="America/Mexico_City">(UTC-06:00) Guadalajara</ion-option>
+    <ion-option value="America/Mexico_City">(UTC-06:00) Mexico City</ion-option>
+    <ion-option value="America/Monterrey">(UTC-06:00) Monterrey</ion-option>
+    <ion-option value="Canada/Saskatchewan">(UTC-06:00) Saskatchewan</ion-option>
+    <ion-option value="America/Bogota">(UTC-05:00) Bogota</ion-option>
+    <ion-option value="US/Eastern">(UTC-05:00) Eastern Time (US &amp; Canada)</ion-option>
+    <ion-option value="US/East-Indiana">(UTC-05:00) Indiana (East)</ion-option>
+    <ion-option value="America/Lima">(UTC-05:00) Lima</ion-option>
+    <ion-option value="America/Bogota">(UTC-05:00) Quito</ion-option>
+    <ion-option value="Canada/Atlantic">(UTC-04:00) Atlantic Time (Canada)</ion-option>
+    <ion-option value="America/Caracas">(UTC-04:30) Caracas</ion-option>
+    <ion-option value="America/La_Paz">(UTC-04:00) La Paz</ion-option>
+    <ion-option value="America/Santiago">(UTC-04:00) Santiago</ion-option>
+    <ion-option value="Canada/Newfoundland">(UTC-03:30) Newfoundland</ion-option>
+    <ion-option value="America/Sao_Paulo">(UTC-03:00) Brasilia</ion-option>
+    <ion-option value="America/Argentina/Buenos_Aires">(UTC-03:00) Buenos Aires</ion-option>
+    <ion-option value="America/Argentina/Buenos_Aires">(UTC-03:00) Georgetown</ion-option>
+    <ion-option value="America/Godthab">(UTC-03:00) Greenland</ion-option>
+    <ion-option value="America/Noronha">(UTC-02:00) Mid-Atlantic</ion-option>
+    <ion-option value="Atlantic/Azores">(UTC-01:00) Azores</ion-option>
+    <ion-option value="Atlantic/Cape_Verde">(UTC-01:00) Cape Verde Is.</ion-option>
+    <ion-option value="Africa/Casablanca">(UTC+00:00) Casablanca</ion-option>
+    <ion-option value="Europe/London">(UTC+00:00) Edinburgh</ion-option>
+    <ion-option value="Etc/Greenwich">(UTC+00:00) Greenwich Mean Time : Dublin</ion-option>
+    <ion-option value="Europe/Lisbon">(UTC+00:00) Lisbon</ion-option>
+    <ion-option value="Europe/London">(UTC+00:00) London</ion-option>
+    <ion-option value="Africa/Monrovia">(UTC+00:00) Monrovia</ion-option>
+    <ion-option value="UTC">(UTC+00:00) UTC</ion-option>
+    <ion-option value="Europe/Amsterdam">(UTC+01:00) Amsterdam</ion-option>
+    <ion-option value="Europe/Belgrade">(UTC+01:00) Belgrade</ion-option>
+    <ion-option value="Europe/Berlin">(UTC+01:00) Berlin</ion-option>
+    <ion-option value="Europe/Berlin">(UTC+01:00) Bern</ion-option>
+    <ion-option value="Europe/Bratislava">(UTC+01:00) Bratislava</ion-option>
+    <ion-option value="Europe/Brussels">(UTC+01:00) Brussels</ion-option>
+    <ion-option value="Europe/Budapest">(UTC+01:00) Budapest</ion-option>
+    <ion-option value="Europe/Copenhagen">(UTC+01:00) Copenhagen</ion-option>
+    <ion-option value="Europe/Ljubljana">(UTC+01:00) Ljubljana</ion-option>
+    <ion-option value="Europe/Madrid">(UTC+01:00) Madrid</ion-option>
+    <ion-option value="Europe/Paris">(UTC+01:00) Paris</ion-option>
+    <ion-option value="Europe/Prague">(UTC+01:00) Prague</ion-option>
+    <ion-option value="Europe/Rome">(UTC+01:00) Rome</ion-option>
+    <ion-option value="Europe/Sarajevo">(UTC+01:00) Sarajevo</ion-option>
+    <ion-option value="Europe/Skopje">(UTC+01:00) Skopje</ion-option>
+    <ion-option value="Europe/Stockholm">(UTC+01:00) Stockholm</ion-option>
+    <ion-option value="Europe/Vienna">(UTC+01:00) Vienna</ion-option>
+    <ion-option value="Europe/Warsaw">(UTC+01:00) Warsaw</ion-option>
+    <ion-option value="Africa/Lagos">(UTC+01:00) West Central Africa</ion-option>
+    <ion-option value="Europe/Zagreb">(UTC+01:00) Zagreb</ion-option>
+    <ion-option value="Europe/Athens">(UTC+02:00) Athens</ion-option>
+    <ion-option value="Europe/Bucharest">(UTC+02:00) Bucharest</ion-option>
+    <ion-option value="Africa/Cairo">(UTC+02:00) Cairo</ion-option> 
+    <ion-option value="Africa/Harare">(UTC+02:00) Harare</ion-option>
+    <ion-option value="Europe/Helsinki">(UTC+02:00) Helsinki</ion-option>
+    <ion-option value="Europe/Istanbul">(UTC+02:00) Istanbul</ion-option>
+    <ion-option value="Asia/Jerusalem">(UTC+02:00) Jerusalem</ion-option>
+    <ion-option value="Europe/Helsinki">(UTC+02:00) Kyiv</ion-option>
+    <ion-option value="Africa/Johannesburg">(UTC+02:00) Pretoria</ion-option>
+    <ion-option value="Europe/Riga">(UTC+02:00) Riga</ion-option>
+    <ion-option value="Europe/Sofia">(UTC+02:00) Sofia</ion-option>
+    <ion-option value="Europe/Tallinn">(UTC+02:00) Tallinn</ion-option>
+    <ion-option value="Europe/Vilnius">(UTC+02:00) Vilnius</ion-option>
+    <ion-option value="Asia/Baghdad">(UTC+03:00) Baghdad</ion-option>
+    <ion-option value="Asia/Kuwait">(UTC+03:00) Kuwait</ion-option>
+    <ion-option value="Europe/Minsk">(UTC+03:00) Minsk</ion-option>
+    <ion-option value="Africa/Nairobi">(UTC+03:00) Nairobi</ion-option>
+    <ion-option value="Asia/Riyadh">(UTC+03:00) Riyadh</ion-option>
+    <ion-option value="Europe/Volgograd">(UTC+03:00) Volgograd</ion-option>
+    <ion-option value="Asia/Tehran">(UTC+03:30) Tehran</ion-option>
+    <ion-option value="Asia/Muscat">(UTC+04:00) Abu Dhabi</ion-option>
+    <ion-option value="Asia/Baku">(UTC+04:00) Baku</ion-option>
+    <ion-option value="Europe/Moscow">(UTC+04:00) Moscow</ion-option>
+    <ion-option value="Asia/Muscat">(UTC+04:00) Muscat</ion-option>
+    <ion-option value="Europe/Moscow">(UTC+04:00) St. Petersburg</ion-option>
+    <ion-option value="Asia/Tbilisi">(UTC+04:00) Tbilisi</ion-option>
+    <ion-option value="Asia/Yerevan">(UTC+04:00) Yerevan</ion-option>
+    <ion-option value="Asia/Kabul">(UTC+04:30) Kabul</ion-option>
+    <ion-option value="Asia/Karachi">(UTC+05:00) Islamabad</ion-option>
+    <ion-option value="Asia/Karachi">(UTC+05:00) Karachi</ion-option>
+    <ion-option value="Asia/Tashkent">(UTC+05:00) Tashkent</ion-option>
+    <ion-option value="Asia/Calcutta">(UTC+05:30) Chennai</ion-option>
+    <ion-option value="Asia/Kolkata">(UTC+05:30) Kolkata</ion-option>
+    <ion-option value="Asia/Calcutta">(UTC+05:30) Mumbai</ion-option>
+    <ion-option value="Asia/Calcutta">(UTC+05:30) New Delhi</ion-option>
+    <ion-option value="Asia/Calcutta">(UTC+05:30) Sri Jayawardenepura</ion-option>
+    <ion-option value="Asia/Katmandu">(UTC+05:45) Kathmandu</ion-option>
+    <ion-option value="Asia/Almaty">(UTC+06:00) Almaty</ion-option>
+    <ion-option value="Asia/Dhaka">(UTC+06:00) Astana</ion-option>
+    <ion-option value="Asia/Dhaka">(UTC+06:00) Dhaka</ion-option>
+    <ion-option value="Asia/Yekaterinburg">(UTC+06:00) Ekaterinburg</ion-option>
+    <ion-option value="Asia/Rangoon">(UTC+06:30) Rangoon</ion-option>
+    <ion-option value="Asia/Bangkok">(UTC+07:00) Bangkok</ion-option>
+    <ion-option value="Asia/Bangkok">(UTC+07:00) Hanoi</ion-option>
+    <ion-option value="Asia/Jakarta">(UTC+07:00) Jakarta</ion-option>
+    <ion-option value="Asia/Novosibirsk">(UTC+07:00) Novosibirsk</ion-option>
+    <ion-option value="Asia/Hong_Kong">(UTC+08:00) Beijing</ion-option>
+    <ion-option value="Asia/Chongqing">(UTC+08:00) Chongqing</ion-option>
+    <ion-option value="Asia/Hong_Kong">(UTC+08:00) Hong Kong</ion-option>
+    <ion-option value="Asia/Krasnoyarsk">(UTC+08:00) Krasnoyarsk</ion-option>
+    <ion-option value="Asia/Kuala_Lumpur">(UTC+08:00) Kuala Lumpur</ion-option>
+    <ion-option value="Australia/Perth">(UTC+08:00) Perth</ion-option>
+    <ion-option value="Asia/Singapore">(UTC+08:00) Singapore</ion-option>
+    <ion-option value="Asia/Taipei">(UTC+08:00) Taipei</ion-option>
+    <ion-option value="Asia/Ulan_Bator">(UTC+08:00) Ulaan Bataar</ion-option>
+    <ion-option value="Asia/Urumqi">(UTC+08:00) Urumqi</ion-option>
+    <ion-option value="Asia/Irkutsk">(UTC+09:00) Irkutsk</ion-option>
+    <ion-option value="Asia/Tokyo">(UTC+09:00) Osaka</ion-option>
+    <ion-option value="Asia/Tokyo">(UTC+09:00) Sapporo</ion-option>
+    <ion-option value="Asia/Seoul">(UTC+09:00) Seoul</ion-option>
+    <ion-option value="Asia/Tokyo">(UTC+09:00) Tokyo</ion-option>
+    <ion-option value="Australia/Adelaide">(UTC+09:30) Adelaide</ion-option>
+    <ion-option value="Australia/Darwin">(UTC+09:30) Darwin</ion-option>
+    <ion-option value="Australia/Brisbane">(UTC+10:00) Brisbane</ion-option>
+    <ion-option value="Australia/Canberra">(UTC+10:00) Canberra</ion-option>
+    <ion-option value="Pacific/Guam">(UTC+10:00) Guam</ion-option>
+    <ion-option value="Australia/Hobart">(UTC+10:00) Hobart</ion-option>
+    <ion-option value="Australia/Melbourne">(UTC+10:00) Melbourne</ion-option>
+    <ion-option value="Pacific/Port_Moresby">(UTC+10:00) Port Moresby</ion-option>
+    <ion-option value="Australia/Sydney">(UTC+10:00) Sydney</ion-option>
+    <ion-option value="Asia/Yakutsk">(UTC+10:00) Yakutsk</ion-option>
+    <ion-option value="Asia/Vladivostok">(UTC+11:00) Vladivostok</ion-option>
+    <ion-option value="Pacific/Auckland">(UTC+12:00) Auckland</ion-option>
+    <ion-option value="Pacific/Fiji">(UTC+12:00) Fiji</ion-option>
+    <ion-option value="Pacific/Kwajalein">(UTC+12:00) International Date Line West</ion-option>
+    <ion-option value="Asia/Kamchatka">(UTC+12:00) Kamchatka</ion-option>
+    <ion-option value="Asia/Magadan">(UTC+12:00) Magadan</ion-option>
+    <ion-option value="Pacific/Fiji">(UTC+12:00) Marshall Is.</ion-option>
+    <ion-option value="Asia/Magadan">(UTC+12:00) New Caledonia</ion-option>
+    <ion-option value="Asia/Magadan">(UTC+12:00) Solomon Is.</ion-option>
+    <ion-option value="Pacific/Auckland">(UTC+12:00) Wellington</ion-option>
+      <ion-option value="Pacific/Tongatapu">(UTC+13:00) Nuku'alofa</ion-option>
+      </ion-select>
+    </ion-item>
+    <label no-padding  class="errormessage" *ngIf="!addtempleServicetime .controls.timzone.valid && (addtempleServicetime .controls.timzone.dirty)">  Please select one. </label>
+    <ion-item no-padding>
+      <ion-avatar class="formlabelicon" item-start>
+        <ion-icon name="outlet"></ion-icon>
+      </ion-avatar>
+      
+      <ion-input placeholder="Details" type="text"  [(ngModel)]="accountlabelobj.Details" formControlName="Details"></ion-input>
+    </ion-item>
+    <label no-padding  class="errormessage" *ngIf="!addtempleServicetime .controls.Details.valid && (addtempleServicetime .controls.Details.dirty)">  Please enter details. </label>
+    <ion-item no-padding>
+      <ion-avatar class="formlabelicon" item-start>
+        <ion-icon name="outlet"></ion-icon>
+      </ion-avatar>      
+      <ion-input placeholder="Remarks" type="text"  [(ngModel)]="accountlabelobj.Remarks" formControlName="Remarks"></ion-input>
+    </ion-item>
+    <label no-padding  class="errormessage" *ngIf="!addtempleServicetime .controls.Remarks.valid && (addtempleServicetime .controls.Remarks.dirty)">  Please enter Remarks. </label>
+        <ion-buttons  *ngIf="!isupdate" padding-top>
+      <button style="background-color: var(--color);" [disabled]="!addtempleServicetime.valid"  ion-button full round type="submit" >Save </button>
+  </ion-buttons>
+  <ion-buttons  *ngIf="isupdate" padding-top>
+    <button style="background-color: var(--color);"  [disabled]="!addtempleServicetime.valid"  ion-button full round type="submit" >Update </button>
+</ion-buttons>
+</form>
+</ion-content>

@@ -1,0 +1,20 @@
+page-searchmodel {
+    .closebtn{
+        background-color: transparent;
+        font-size: 24px;
+    }
+    .searchbox .searchlabel{
+    padding: 10px;
+    background: unset;
+    border: 1px solid var(--color);
+    box-shadow: unset;
+    border-radius: 5px;
+    }
+    .searchbox{
+        float: left;
+    }
+    .searchbox .label-md{
+        margin:6px 7px 0px 0;
+    }
+
+}
